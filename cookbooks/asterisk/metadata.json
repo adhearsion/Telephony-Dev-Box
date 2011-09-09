@@ -1,0 +1,29 @@
+{
+  "dependencies": {
+  },
+  "name": "asterisk",
+  "maintainer_email": "chris.peplin@rhubarbtech.com",
+  "attributes": {
+  },
+  "license": "Apache 2.0",
+  "suggestions": {
+  },
+  "platforms": {
+  },
+  "maintainer": "Chris Peplin",
+  "long_description": "Description\n===========\n\nInstalls Asterisk 1.8 on Debian/Ubuntu and configures it to accept incoming and\noutgoing calls for a single Google Voice number.\n\nChanges\n=======\n\n## v0.4.0:\n\n* Add documentation and a check to make sure we're in Ubuntu/Debian\n\n## v0.3.0:\n\n* Initial version, tested on Ubuntu only\n\nRequirements\n============\n\n## Platform:\n\n* Ubuntu and Debian, 64 bit (amd64/x86\\_64)\n\nOther platforms can be used but you'll need to modify the default recipe.\n\nAttributes\n==========\n\nThere are a number of attributes defined in the cookbook, but the defaults are\npretty sane. You probably don't need to change any of them to get a working\nsetup.\n\nHowever, you'll need to configure two data bags. The `asterisk` data bag should\ncontain your desired Asterisk accounts (I've only tested it with one) defined\nlike this:\n\n    id:         <your desired username>\n    data_bag:   asterisk\n    extension:  <the extension # for your PBX line, I just use 101>\n    full_name:  <full display name>\n    password:   <your desired password>\n    username:   <your desired username>\n\nYour Google account should be configured in a more general `auth` data bag. I\nkeep this separate from the Asterisk config because it's also used by other\ncookbooks in my system. My `auth` data bag is where I keep credentials info for\nall third-party accounts. The `auth` data bag must contian a `google` object\nlike this:\n\n    id:        google\n    username:  <your Google username>@gmail.com\n    password:  <your Google password>\n\nUsage\n=====\n\nInclude the asterisk default recipe in a role run list.\n\n    name \"role_for_asterisk\"\n    run_list(\"recipe[asterisk]\")\n\nOnce Asterisk is installed, you should be able to open any SIP client (like\nEkiga in Ubuntu) and connect to it using the account you set up in the\n`asterisk` data bag.\n\nLicense and Author\n==================\n\n* Copyright 2011, Christopher Peplin <chris.peplin@rhubarbtech.com>\n\nLicensed under the Apache License, Version 2.0 (the \"License\");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at\n\n    http://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\n",
+  "version": "0.4.0",
+  "recommendations": {
+  },
+  "recipes": {
+  },
+  "groupings": {
+  },
+  "conflicting": {
+  },
+  "replacing": {
+  },
+  "description": "Installs/Configures asterisk",
+  "providing": {
+  }
+}

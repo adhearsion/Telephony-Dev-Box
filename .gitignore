@@ -1,3 +1,7 @@
 prism.bin
 rayo.war
 package.box
+.DS_Store
+.vagrant
+.rvmrc
+prism/license_file/license.xml

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- enableSecurityManager - Enables the tropo.com jailbox [Default: true] -->
+<!-- allowOutboundByDefault - When true, applications are allowed to make out bound calls by default [Default: true] -->
+<tropo enableSecurityManager="false" allowOutboundByDefault="true">
+  <core>
+    <!-- IP Address encoded into Session IDs [Default: First non-loopback address] -->
+    <bindAddress>127.0.0.1</bindAddress>
+    <!-- The channle to assume if not specified by verbs [Default: VOICE] -->
+    <defaultChannel>VOICE</defaultChannel>
+    <!-- The TTL in seconds for positive DNS lookups [Default: 60] -->
+    <dnsTimeToLive>60</dnsTimeToLive>
+  </core>
+  <!-- The SBC used to make outbound calls -->
+  <routing defaultGateway="sbc.sample.net">
+    <!--
+       Account-specific SBC settings, perhaps you want one accountID to go thru an alternate gateway
+    -->
+    <gateway accountId="1234" value="alternate.sample.net"/>
+  </routing>
+  
+  <!-- host - Address used when negotiating media [Required] -->
+  <!-- port - Prism Media server port -->
+  <mediaServer host="127.0.0.1" port="10074" communitySettings="service">
+    <!-- URL used to fetch media server utterances -->
+    <utterancesBase>http://127.0.0.1:8080/com.voxeo.prism.msctrl/MRCP/Utterances/</utterancesBase>
+    <!-- URL used to fetch media server recordings -->
+    <recordingsBase>http://127.0.0.1:8080/com.voxeo.prism.msctrl/MRCP/Recordings/</recordingsBase>
+    <!-- Default max TTS time in milliseconds [Default: 300000] -->
+    <maxTimeSpeak>300000</maxTimeSpeak>
+    <!-- Default max ASR time in milliseconds [Default: 300000] -->
+    <maxTimeListen>60000</maxTimeListen>
+    <!-- Default min ASR confidence as float between 0 and 1 [Default: 0.3] -->
+    <confidenceLevel>0.30</confidenceLevel>
+    <!-- Default ASR language -->
+    <asrResource>en-US</asrResource>
+    <!-- Default TTS language -->
+    <ttsResource>en-US</ttsResource>
+    <!-- Default no-input timeout in milliseconds [Default: 10000] -->
+    <noInputTimeout>60000</noInputTimeout>
+    <!-- Mapping of ASR language to engine type. Possible values for type are prophecy, loquendo, nuance -->
+    <recognizers>
+      <mapping name="en-us" type="prophecy"/>
+    </recognizers>
+    <bangSyntax>false</bangSyntax>
+  </mediaServer>
+  <!-- Transcription Gateway -->
+  <transcription>
+    <transcriptionServer></transcriptionServer>
+    <transcriptionUser></transcriptionUser>
+    <transcriptionPasswd></transcriptionPasswd>
+    <transcriptionHttpMultipartMode>BROWSER_COMPATIBLE</transcriptionHttpMultipartMode>
+  </transcription>
+  <!-- Call Detail Record Configuration -->
+  <CallDetailRecord enabled="true">
+    <cdrServiceType>LOG</cdrServiceType>
+    <cdrDataFormat>json</cdrDataFormat>
+    <cdrDateFormat><![CDATA[EEE, d MMM yyyy HH:mm:ss Z]]></cdrDateFormat>
+    <cdrTimeZone>GMT</cdrTimeZone>
+  </CallDetailRecord>
+  <!-- Tropo Scripting Configuration -->
+  <!-- The MockAppMgr loads scripts from a web server based on the user-portion of the TO header -->
+  <appManager class="com.voxeo.tropo.app.MockAppMgr">
+    <!-- Base URL used to fetch scripts -->
+    <para name="appPosition" value="http://localhost:8080/tropo/script/"/>
+    <!-- File extension to engine type mappings -->
+    <para name="javascript" value="js"/>
+    <para name="Javascript" value="js"/>
+    <para name="js" value="js"/>
+    <para name="tjs" value="js"/>
+    <para name="JS" value="js"/>
+    <para name="Js" value="js"/>
+    <para name="groovy" value="groovy"/>
+    <para name="tgroovy" value="groovy"/>
+    <para name="Groovy" value="groovy"/>
+    <para name="gr" value="groovy"/>
+    <para name="tgr" value="groovy"/>
+    <para name="GR" value="groovy"/>
+    <para name="Gr" value="groovy"/>
+    <para name="Jython" value="jython"/>
+    <para name="jython" value="jython"/>
+    <para name="py" value="jython"/>
+    <para name="tpy" value="jython"/>
+    <para name="PY" value="jython"/>
+    <para name="TPY" value="jython"/>
+    <para name="Py" value="jython"/>
+    <para name="JY" value="jython"/>
+    <para name="TJY" value="jython"/>
+    <para name="jy" value="jython"/>
+    <para name="tjy" value="jython"/>
+    <para name="Jy" value="jython"/>
+    <para name="ruby" value="jruby"/>
+    <para name="truby" value="jruby"/>
+    <para name="RUBY" value="jruby"/>
+    <para name="TRUBY" value="jruby"/>
+    <para name="jruby" value="jruby"/>
+    <para name="tjruby" value="jruby"/>
+    <para name="JRUBY" value="jruby"/>
+    <para name="TJRUBY" value="jruby"/>
+    <para name="rb" value="jruby"/>
+    <para name="trb" value="jruby"/>
+    <para name="RB" value="jruby"/>
+    <para name="TRB" value="jruby"/>
+    <para name="Rb" value="jruby"/>
+    <para name="Rb" value="jruby"/>
+    <para name="JR" value="jruby"/>
+    <para name="jr" value="jruby"/>
+    <para name="tjr" value="jruby"/>
+    <para name="Jr" value="jruby"/>
+    <para name="php" value="php"/>
+    <para name="tphp" value="php"/>
+    <para name="PHP" value="php"/>
+    <para name="TPHP" value="php"/>
+    <para name="xml" value="tropo-web"/>
+    <para name="json" value="tropo-web"/>
+  </appManager>
+  <!-- Script Engine Pool -->
+  <scripts maxEngines="100">
+    <script type="js" file="com/voxeo/tropo/javascript/tropo.js" enginePoolSize="10"/>
+    <script type="groovy" file="com/voxeo/tropo/groovy/tropo.groovy" enginePoolSize="10"/>
+    <script type="jython" file="com/voxeo/tropo/jython/tropo.py" enginePoolSize="10"/>
+    <script type="jruby" file="com/voxeo/tropo/jruby/tropo.rb" enginePoolSize="10"/>
+    <script type="php" file="com/voxeo/tropo/php/tropo.php" enginePoolSize="10"/>
+    <script type="tropo-web" file="com/voxeo/tropo/rest/tropo.xml" enginePoolSize="10" urlPassthrough="true"/>
+  </scripts>
+  <!-- Scripting Sandbox Rules -->
+  <sandbox>
+    <verbsPerSecond>20</verbsPerSecond>
+    <verbRepitition>10</verbRepitition>
+    <allow/>
+    <forbid/>
+  </sandbox>
+</tropo>

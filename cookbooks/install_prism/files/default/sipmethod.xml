@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SIPMethod version="4.0">
+  <NetworkAccessPoint transport="tcp" port="5060"/>
+  <NetworkAccessPoint transport="udp" port="5060"/>
+  <!--For Tropo Module-->
+  <NetworkAccessPoint transport="tcp" port="5061"/>
+  <NetworkAccessPoint transport="udp" port="5061"/>
+  <!--For TwiML Module-->
+  <NetworkAccessPoint transport="tcp" port="6062"/>
+  <NetworkAccessPoint transport="udp" port="6062"/>
+  <NetworkAccessPoint transport="http" port="8080"/>
+  <NetworkAccessPoint transport="xmpp" pointtype="client" port="5222"/>
+  <NetworkAccessPoint transport="xmpp" pointtype="server" port="5269"/>
+  <SIP rport="enable" received="true" />
+  <HTTP/>
+  <SOAP/>
+  <XMPP/>
+  <Realm name="MemoryRealm" class="com.micromethod.sipmethod.server.security.impl.MemoryRealm" path="conf/sipmethod-users.xml"/>
+  <SNMPAgent version="v1" communityName="voxeo">
+    <Listener transport="tcp" port="12345" />
+    <Listener transport="udp" port="12345" />
+  </SNMPAgent>
+  <!-- Configure as Cluster with default value-->
+  <!-- 
+  <SIP distributable="true" />
+  <HTTP distributable="false" />
+  <SOAP distributable="false" />
+  <Cluster>
+    <Node name="${hostname}" group="${multicastAddress}:${multicastPort}"/>
+  </Cluster>
+  -->
+  <!-- TO enable the distributable of the services,the Cluster have to set correctly.
+-->
+  
+  <!--
+  <MediaControl>
+   <MS uri="mrcp://127.0.0.1:10074">
+     <LoadBalancer class="com.voxeo.msctrl.DefaultLoadBalancer"/>
+     <Interceptor name="A" class="com.voxeo.msctrl.AInterceptor">
+       <Attribute name="foo1">bar1</Attribute>
+     </Interceptor>
+     <Interceptor name="B" class="com.voxeo.msctrl.BInterceptor">
+       <Attribute name="foo2">bar2</Attribute>
+     </Interceptor>   
+     <TTS>
+       <Encodings>
+         <Attribute name="default">utf-8</Attribute>
+       </Encodings> 
+     </TTS>
+     <ASR>
+       <Langs>
+         <Attribute name="en-us">prophecy</Attribute>
+       </Langs>
+       <XML-Encodings>
+         <Attribute name="default">utf-8</Attribute>
+       </XML-Encodings>
+       <Non-XML-Encodings>
+         <Attribute name="default">utf-8</Attribute>
+       </Non-XML-Encodings>     
+     </ASR>
+   </MS>
+  </MediaControl>
+  -->
+
+  <!-- To enable the distributed MediaMixer support, the Directory should be configured correctly.  
+  <Directory maxRetryTimes="5" maxConnectionSize="100">
+    <Cluster group="${multicastAddress}:${multicastPort}" heartbeatInterval="5000" />
+  </Directory>
+  -->

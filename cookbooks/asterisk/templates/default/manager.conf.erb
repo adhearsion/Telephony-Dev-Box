@@ -1,0 +1,23 @@
+;
+; Asterisk Call Management support
+;
+
+[general]
+enabled = <%= @node[:asterisk][:manager_enabled] %>
+port = <%= @node[:asterisk][:manager_port] %>
+bindaddr = <%= @node[:asterisk][:manager_ip_address] %>
+webenabled = <%= @node[:asterisk][:manager_webenabled] %>
+timestampevents = <%= @node[:asterisk][:manager_timestampevents] %>
+
+[<%= @node[:asterisk][:manager_username] %>]
+secret = <%= @node[:asterisk][:manager_password] %>
+deny = <%= @node[:asterisk][:manager_deny] %>
+permit = <%= @node[:asterisk][:manager_permit] %>
+read = <%= @node[:asterisk][:manager_read_perms].join(",") %>
+write = <%= @node[:asterisk][:manager_write_perms].join(",") %>
+
+[adhearsion]
+secret = password
+permit = 0.0.0.0/0.0.0.0
+read = all
+write = all

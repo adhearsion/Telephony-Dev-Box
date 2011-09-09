@@ -1,0 +1,4 @@
+Vagrant::Config.run do |config|
+  # Forward apache
+  config.vm.forward_port("prism", 8080, 8080)
+end
