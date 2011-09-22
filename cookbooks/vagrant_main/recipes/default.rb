@@ -5,5 +5,6 @@ require_recipe "install_prism"
 require_recipe "install_rayo"
 require_recipe "prism_upstart"
 require_recipe "asterisk"
+require_recipe "motd-tail"
 
 

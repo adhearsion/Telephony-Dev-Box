@@ -1,0 +1,1 @@
+ sudo /usr/sbin/asterisk 

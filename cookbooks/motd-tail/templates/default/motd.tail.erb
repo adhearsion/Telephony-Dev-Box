@@ -1,0 +1,16 @@
+
+***
+Chef-Client - <%= node['fqdn'] %>
+<% @roles.each do |role| -%>
+<%= role %>
+<% end -%>
+
+Welcome To the MojoLingo Development Instance With Prism and Asterisk.  
+To start Prism: /vagrant/scripts/start_prism.sh
+To stop Prism: /vagrant/scripts/stop_prism.sh
+
+To start Asterisk:  /vagrant/scripts/start_asterisk.sh
+To stop Asterisk: /vagrant/scripts/stop_asterisk.sh
+
+***
+

@@ -5,6 +5,10 @@
 5. Type `vagrant up` (boots the system)
 6. (optional) To package the file type (while its running) type `vagrant package --vagrantfile Vagrantfile.pkg` (this will preserve the 8080 port mapping)
 
+This instance will be built with prism, rayo and asterisk installed.  Because of port conflicts between prism and asterisk, the system will boot with neither app process launched.
+use one of the scripts in /vagrant/scripts to launch the appropriate server as you need.  There are also scripts to kill the appropriate process. 
+
+
 you can start up asterisk by vagrant ssh, then sudo start asterisk (similarly you can sudo stop asterisk).  You can run prism and asterisk at the same time because of port conflicts
 
 
