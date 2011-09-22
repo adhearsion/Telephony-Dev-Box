@@ -10,6 +10,7 @@ Vagrant::Config.run do |config|
   # computers to access the VM, whereas host only networking does not.
    config.vm.forward_port "prism", 8080, 8080
 
+   config.vm.network("192.168.10.10")
 
 
   # Enable provisioning with chef solo, specifying a cookbooks path (relative
@@ -18,6 +19,7 @@ Vagrant::Config.run do |config|
    config.vm.provision :chef_solo do |chef|
      chef.cookbooks_path = "cookbooks"
      chef.add_recipe "vagrant_main"
+
   
      # You may also specify custom JSON attributes:
       chef.json = { :mysql_password => "foo" }
