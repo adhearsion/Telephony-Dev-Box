@@ -4,4 +4,4 @@ package.box
 .DS_Store
 .vagrant
 .rvmrc
-prism/license_file/license.xml
+components_to_be_installed/prism/license_file/license.xml
