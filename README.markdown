@@ -11,7 +11,8 @@ use one of the scripts in /vagrant/scripts to launch the appropriate server as y
 
 you can start up asterisk by vagrant ssh, then sudo start asterisk (similarly you can sudo stop asterisk).  You can run prism and asterisk at the same time because of port conflicts
 
-
+After logging in to the image, create an adhearsion app by typing ahn create testapp (or whatever you want to call it)
+Start the adhearsion app by typing ahn start testapp
 
 Just before packaging, log in to the box and enter the following
 commands  to shrink the image size
