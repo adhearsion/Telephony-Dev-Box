@@ -32,7 +32,8 @@ _global_gems_ = [
   { 'name'    => 'bundler' },
   { 'name'    => 'rake',
     'version' => '0.9.2'
-  }
+  },
+  {'name' =>'adhearsion'}
 ]
 default['rvm']['global_gems']       = _global_gems_.dup
 default['rvm']['user_global_gems']  = _global_gems_.dup
