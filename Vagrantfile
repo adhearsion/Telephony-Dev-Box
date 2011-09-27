@@ -4,30 +4,32 @@ Vagrant::Config.run do |config|
   # please see the online documentation at vagrantup.com.
 
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "lucid32"
+  config.vm.box       = "lucid32"
+  config.vm.host_name = "mojolingo-dev.local"
 
   # Bump the memory to accommodate PRISM
   config.vm.customize do |vm|
     vm.memory_size = 512
-    vm.name = "Mojo Lingo Telephony App Development"
+    vm.name        = "Mojo Lingo Telephony App Development"
   end
 
   # Forward a port from the guest to the host, which allows for outside
   # computers to access the VM, whereas host only networking does not.
-   config.vm.forward_port "prism", 8080, 18080
+  config.vm.forward_port "prism", 8080, 18080
 
-   config.vm.network "192.168.10.10"
+  config.vm.network "192.168.10.10"
 
   # Enable provisioning with chef solo, specifying a cookbooks path (relative
   # to this Vagrantfile), and adding some recipes and/or roles.
   #
-   config.vm.provision :chef_solo do |chef|
-     chef.cookbooks_path = "cookbooks"
-     chef.add_recipe "vagrant_main"
+  config.vm.provision :chef_solo do |chef|
+    chef.cookbooks_path = "cookbooks"
+    chef.add_recipe "vagrant_main"
 
+    # You may also specify custom JSON attributes:
+    chef.json = { :mysql_password => "foo" }
+  end
 
-     # You may also specify custom JSON attributes:
-      chef.json = { :mysql_password => "foo" }
-   end
+  config.package.name = 'mojolingo_dev'
 
 end
