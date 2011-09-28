@@ -30,6 +30,7 @@ Vagrant::Config.run do |config|
     chef.json = { :mysql_password => "foo" }
   end
 
-  config.package.name = 'mojolingo_dev'
+  # Set the name for the packaged VM file
+  config.package.name = 'mojolingo_dev.box'
 
 end
