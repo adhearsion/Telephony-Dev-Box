@@ -1,3 +1,4 @@
+require_recipe "apt"
 require_recipe "rvm::system"
 require_recipe "rvm::vagrant"
 require_recipe "rvm::create_gemset"
