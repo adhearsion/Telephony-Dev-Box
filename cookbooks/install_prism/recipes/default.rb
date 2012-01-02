@@ -1,5 +1,5 @@
 #'openjdk-6-jre-headless' needed?
-pkgs = ['libxerces-c28','libnspr4-0d', 'libidn11', "lynx"]
+pkgs = ['libxerces-c28','libnspr4-0d', 'libidn11', "lynx", "psmisc"]
 pkgs.each do |pkg|
   package pkg do
     action:nothing
