@@ -23,6 +23,6 @@ task :boot do
 end
 
 task :package do
-  `vagrant ssh -c "cat /dev/zero > zero.fill;sync;sleep 1;sync;rm -f zero.fill"`
-  `vagrant package --vagrantfile Vagrantfile.pkg`
+  system 'vagrant ssh -c "sudo aptitude clean && cat /dev/zero > zero.fill;sync;sleep 1;sync;rm -f zero.fill"'
+  system 'vagrant package --vagrantfile Vagrantfile.pkg'
 end
