@@ -8,8 +8,6 @@ Vagrant::Config.run do |config|
     vm.name        = "Mojo Lingo Telephony App Development"
   end
 
-  config.vm.forward_port 8080, 18080
-
   config.vm.network :hostonly, "192.168.10.10"
 
   config.vm.provision :chef_solo do |chef|
