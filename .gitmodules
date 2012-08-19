@@ -4,3 +4,6 @@
 [submodule "cookbooks/build-essential"]
 	path = cookbooks/build-essential
 	url = https://github.com/opscode-cookbooks/build-essential.git
+[submodule "cookbooks/asterisk"]
+	path = cookbooks/asterisk
+	url = git://github.com/mojolingo/asterisk-cookbook.git
