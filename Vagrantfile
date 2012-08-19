@@ -13,11 +13,12 @@ Vagrant::Config.run do |config|
   config.vm.provision :chef_solo do |chef|
     chef.cookbooks_path = "cookbooks"
     chef.add_recipe "apt"
+    chef.add_recipe "motd-tail"
     chef.add_recipe "prism"
     chef.add_recipe "rayo"
     chef.add_recipe "prism_upstart"
     chef.add_recipe "asterisk"
-    chef.add_recipe "motd-tail"
+    chef.add_recipe "freeswitch"
 
     chef.json = { :mysql_password => "foo" }
 
