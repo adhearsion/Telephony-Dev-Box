@@ -1,0 +1,7 @@
+{
+  "id": "adhearsion",
+  "name": "adhearsion",
+  "entries": [
+    "exten => _.,1,AGI(agi:async)"
+  ]
+}

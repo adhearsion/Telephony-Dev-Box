@@ -7,3 +7,6 @@
 [submodule "cookbooks/asterisk"]
 	path = cookbooks/asterisk
 	url = git://github.com/mojolingo/asterisk-cookbook.git
+[submodule "cookbooks/chef-solo-search"]
+	path = cookbooks/chef-solo-search
+	url = https://github.com/edelight/chef-solo-search.git

@@ -1,0 +1,9 @@
+{
+  "id": "usera",
+  "data_bag": "asterisk_users",
+  "extension": 100,
+  "full_name": "User A",
+  "password": "usera",
+  "username": "usera",
+  "context": "adhearsion"
+}
