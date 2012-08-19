@@ -20,7 +20,12 @@ Vagrant::Config.run do |config|
     chef.add_recipe "asterisk"
     chef.add_recipe "motd-tail"
 
-    chef.json = { :mysql_password => "foo" }
+    chef.json = {
+      asterisk: {
+        manager_ip_address: '192.168.10.10',
+        manager_permit: '0.0.0.0/0.0.0.0'
+      }
+    }
 
     chef.log_level = :debug
   end
