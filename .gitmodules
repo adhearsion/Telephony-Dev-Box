@@ -10,3 +10,12 @@
 [submodule "cookbooks/chef-solo-search"]
 	path = cookbooks/chef-solo-search
 	url = https://github.com/edelight/chef-solo-search.git
+[submodule "cookbooks/rbenv"]
+	path = cookbooks/rbenv
+	url = https://github.com/fnichol/chef-rbenv.git
+[submodule "cookbooks/ruby_build"]
+	path = cookbooks/ruby_build
+	url = https://github.com/fnichol/chef-ruby_build.git
+[submodule "cookbooks/java"]
+	path = cookbooks/java
+	url = https://github.com/opscode-cookbooks/java.git

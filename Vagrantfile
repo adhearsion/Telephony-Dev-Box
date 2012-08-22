@@ -19,6 +19,9 @@ Vagrant::Config.run do |config|
     chef.add_recipe "prism_upstart"
     chef.add_recipe "asterisk"
     chef.add_recipe "motd-tail"
+    chef.add_recipe "java"
+    chef.add_recipe "ruby_build"
+    chef.add_recipe "rbenv::user"
 
     chef.json = {
       asterisk: {
@@ -26,6 +29,24 @@ Vagrant::Config.run do |config|
         manager_permit: '0.0.0.0/0.0.0.0',
         manager_read_perms: %w{all},
         manager_write_perms: %w{all}
+      },
+      'rbenv' => {
+        'user_installs' => [
+          { 'user'    => 'vagrant',
+            'rubies'  => ['1.9.3-p194', 'jruby-1.6.7.2'],
+            'global'  => '1.9.3-p194',
+            'gems'    => {
+              '1.9.3-p194' => [
+                { 'name' => 'bundler' },
+                { 'name' => 'adhearsion' }
+              ],
+              'jruby-1.6.7.2' => [
+                { 'name' => 'bundler' },
+                { 'name' => 'adhearsion' }
+              ]
+            }
+          }
+        ]
       }
     }
 
