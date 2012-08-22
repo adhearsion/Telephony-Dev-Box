@@ -23,7 +23,9 @@ Vagrant::Config.run do |config|
     chef.json = {
       asterisk: {
         manager_ip_address: '192.168.10.10',
-        manager_permit: '0.0.0.0/0.0.0.0'
+        manager_permit: '0.0.0.0/0.0.0.0',
+        manager_read_perms: %w{all},
+        manager_write_perms: %w{all}
       }
     }
 
