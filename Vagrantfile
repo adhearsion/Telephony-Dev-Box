@@ -33,6 +33,10 @@ Vagrant::Config.run do |config|
         manager_read_perms: %w{all},
         manager_write_perms: %w{all}
       },
+      freeswitch: {
+        tls_only: false,
+        local_ip: '192.168.10.10'
+      },
       'rbenv' => {
         'user_installs' => [
           { 'user'    => 'vagrant',
