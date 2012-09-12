@@ -22,7 +22,6 @@ Vagrant::Config.run do |config|
     chef.add_recipe "prism_upstart"
     chef.add_recipe "asterisk"
     chef.add_recipe "freeswitch"
-    chef.add_recipe "motd-tail"
     chef.add_recipe "java"
     chef.add_recipe "ruby_build"
     chef.add_recipe "rbenv::user"
