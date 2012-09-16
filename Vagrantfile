@@ -4,6 +4,7 @@ Vagrant::Config.run do |config|
   config.vm.define :adhearsion do |adhearsion|
     adhearsion.vm.network :hostonly, "192.168.10.10"
     adhearsion.vm.host_name = "adhearsion.mojolingo-dev.local"
+    adhearsion.vm.customize ['modifyvm', :id, '--natdnshostresolver1', 'on']
 
     adhearsion.vm.provision :chef_solo do |chef|
       chef.cookbooks_path = "cookbooks"
@@ -41,6 +42,7 @@ Vagrant::Config.run do |config|
   config.vm.define :asterisk do |asterisk|
     asterisk.vm.network :hostonly, "192.168.10.11"
     asterisk.vm.host_name = "asterisk.mojolingo-dev.local"
+    config.vm.customize ['modifyvm', :id, '--natdnshostresolver1', 'on']
 
     asterisk.vm.provision :chef_solo do |chef|
       chef.cookbooks_path = "cookbooks"
@@ -64,6 +66,7 @@ Vagrant::Config.run do |config|
   config.vm.define :prism do |prism|
     prism.vm.network :hostonly, "192.168.10.12"
     prism.vm.host_name = "prism.mojolingo-dev.local"
+    config.vm.customize ['modifyvm', :id, '--natdnshostresolver1', 'on']
 
     config.vm.customize do |vm|
       vm.memory_size = 512 # Bump the memory to accommodate PRISM
@@ -78,6 +81,27 @@ Vagrant::Config.run do |config|
       chef.add_recipe "prism_upstart"
 
       chef.log_level = :debug
+    end
+  end
+
+  config.vm.define :freeswitch do |freeswitch|
+    freeswitch.vm.network :hostonly, "192.168.10.13"
+    freeswitch.vm.host_name = "freeswitch.mojolingo-dev.local"
+
+    freeswitch.vm.customize ['modifyvm', :id, '--natdnshostresolver1', 'on']
+
+    config.vm.provision :chef_solo do |chef|
+      chef.cookbooks_path = "cookbooks"
+      chef.data_bags_path = "data_bags"
+      chef.add_recipe "apt"
+      chef.add_recipe "freeswitch"
+
+      chef.json = {
+        freeswitch: {
+          tls_only: false,
+          local_ip: '192.168.10.13'
+        }
+      end
     end
   end
 end
