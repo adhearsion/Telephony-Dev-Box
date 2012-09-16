@@ -90,7 +90,7 @@ Vagrant::Config.run do |config|
 
     freeswitch.vm.customize ['modifyvm', :id, '--natdnshostresolver1', 'on']
 
-    config.vm.provision :chef_solo do |chef|
+    freeswitch.vm.provision :chef_solo do |chef|
       chef.cookbooks_path = "cookbooks"
       chef.data_bags_path = "data_bags"
       chef.add_recipe "apt"
@@ -101,7 +101,7 @@ Vagrant::Config.run do |config|
           tls_only: false,
           local_ip: '192.168.10.13'
         }
-      end
+      }
     end
   end
 end
