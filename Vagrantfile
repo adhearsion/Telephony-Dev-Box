@@ -1,5 +1,5 @@
 Vagrant::Config.run do |config|
-  config.vm.box = "lucid32"
+  config.vm.box = "precise64"
 
   config.vm.define :adhearsion do |adhearsion|
     adhearsion.vm.network :hostonly, "192.168.10.10"
