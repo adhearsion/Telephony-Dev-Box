@@ -66,8 +66,10 @@ Vagrant::Config.run do |config|
   end
 
   config.vm.define :prism do |prism|
+    domain = "prism.mojolingo-dev.local"
+
     prism.vm.network :hostonly, "192.168.10.12"
-    prism.vm.host_name = "prism.mojolingo-dev.local"
+    prism.vm.host_name = domain
     config.vm.customize ['modifyvm', :id, '--natdnshostresolver1', 'on']
 
     config.vm.customize do |vm|
@@ -86,9 +88,15 @@ Vagrant::Config.run do |config|
       chef.log_level = :debug
 
       chef.json = {
+        'name' => domain,
         'prism' => {
           'user' => 'vagrant',
           'group' => 'vagrant'
+        },
+        'rayo' => {
+          'node' => {
+            'domains' => [domain]
+          }
         }
       }
     end
