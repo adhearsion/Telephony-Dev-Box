@@ -82,6 +82,13 @@ Vagrant::Config.run do |config|
       chef.add_recipe "rayo"
 
       chef.log_level = :debug
+
+      chef.json = {
+        'prism' => {
+          'user' => 'vagrant',
+          'group' => 'vagrant'
+        }
+      }
     end
   end
 
