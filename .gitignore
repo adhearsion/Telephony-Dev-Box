@@ -1,8 +1,5 @@
-prism.bin
-rayo.war
 mojolingo_dev.box
 .DS_Store
 .vagrant
 .rvmrc
-components_to_be_installed/prism/license_file/license.xml
 vagrant/

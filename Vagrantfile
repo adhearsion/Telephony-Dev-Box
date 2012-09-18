@@ -76,9 +76,6 @@ Vagrant::Config.run do |config|
       chef.cookbooks_path = "cookbooks"
       chef.data_bags_path = "data_bags"
       chef.add_recipe "apt"
-      chef.add_recipe "prism"
-      chef.add_recipe "rayo"
-      chef.add_recipe "prism_upstart"
 
       chef.log_level = :debug
     end

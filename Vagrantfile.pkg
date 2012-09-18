@@ -1,4 +1,0 @@
-Vagrant::Config.run do |config|
-  # Forward PRISM administration console
-  config.vm.forward_port 8080, 18080
-end
