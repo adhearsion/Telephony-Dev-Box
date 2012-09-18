@@ -24,7 +24,7 @@
 	url = https://github.com/opscode-cookbooks/java.git
 [submodule "cookbooks/prism"]
 	path = cookbooks/prism
-	url = https://bitbucket.org/voxeolabs/prism-chef.git
+	url = https://github.com/mojolingo/prism-chef.git
 [submodule "cookbooks/rayo"]
 	path = cookbooks/rayo
 	url = https://bitbucket.org/voxeolabs/rayo-chef.git
