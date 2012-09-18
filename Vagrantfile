@@ -40,7 +40,9 @@ Vagrant::Config.run do |config|
   end
 
   config.vm.define :asterisk do |asterisk|
-    asterisk.vm.network :hostonly, "192.168.10.11"
+    public_ip = "192.168.10.11"
+
+    asterisk.vm.network :hostonly, public_ip
     asterisk.vm.host_name = "asterisk.mojolingo-dev.local"
     config.vm.customize ['modifyvm', :id, '--natdnshostresolver1', 'on']
 
@@ -54,7 +56,7 @@ Vagrant::Config.run do |config|
 
       chef.json = {
         asterisk: {
-          manager_ip_address: '192.168.10.11',
+          manager_ip_address: public_ip,
           manager_permit: '0.0.0.0/0.0.0.0',
           manager_read_perms: %w{all},
           manager_write_perms: %w{all}
@@ -93,7 +95,9 @@ Vagrant::Config.run do |config|
   end
 
   config.vm.define :freeswitch do |freeswitch|
-    freeswitch.vm.network :hostonly, "192.168.10.13"
+    public_ip = "192.168.10.13"
+
+    freeswitch.vm.network :hostonly, public_ip
     freeswitch.vm.host_name = "freeswitch.mojolingo-dev.local"
 
     freeswitch.vm.customize ['modifyvm', :id, '--natdnshostresolver1', 'on']
@@ -107,7 +111,7 @@ Vagrant::Config.run do |config|
       chef.json = {
         freeswitch: {
           tls_only: false,
-          local_ip: '192.168.10.13'
+          local_ip: public_ip
         }
       }
     end
