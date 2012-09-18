@@ -71,10 +71,7 @@ Vagrant::Config.run do |config|
     prism.vm.network :hostonly, "192.168.10.12"
     prism.vm.host_name = domain
     config.vm.customize ['modifyvm', :id, '--natdnshostresolver1', 'on']
-
-    config.vm.customize do |vm|
-      vm.memory_size = 512 # Bump the memory to accommodate PRISM
-    end
+    config.vm.customize ["modifyvm", :id, "--memory", 1024]
 
     prism.vm.provision :chef_solo do |chef|
       chef.cookbooks_path = "cookbooks"
