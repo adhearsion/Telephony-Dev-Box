@@ -3,7 +3,7 @@ Vagrant::Config.run do |config|
 
   config.vm.define :adhearsion do |adhearsion|
     adhearsion.vm.network :hostonly, "192.168.10.10"
-    adhearsion.vm.host_name = "adhearsion.mojolingo-dev.local"
+    adhearsion.vm.host_name = "adhearsion.local-dev.mojolingo.com"
     adhearsion.vm.customize ['modifyvm', :id, '--natdnshostresolver1', 'on']
 
     adhearsion.vm.provision :chef_solo do |chef|
@@ -43,7 +43,7 @@ Vagrant::Config.run do |config|
     public_ip = "192.168.10.11"
 
     asterisk.vm.network :hostonly, public_ip
-    asterisk.vm.host_name = "asterisk.mojolingo-dev.local"
+    asterisk.vm.host_name = "asterisk.local-dev.mojolingo.com"
     config.vm.customize ['modifyvm', :id, '--natdnshostresolver1', 'on']
 
     asterisk.vm.provision :chef_solo do |chef|
@@ -66,7 +66,7 @@ Vagrant::Config.run do |config|
   end
 
   config.vm.define :prism do |prism|
-    domain = "prism.mojolingo-dev.local"
+    domain = "prism.local-dev.mojolingo.com"
     ip     = "192.168.10.12"
 
     prism.vm.network :hostonly, ip
@@ -106,7 +106,7 @@ Vagrant::Config.run do |config|
     public_ip = "192.168.10.13"
 
     freeswitch.vm.network :hostonly, public_ip
-    freeswitch.vm.host_name = "freeswitch.mojolingo-dev.local"
+    freeswitch.vm.host_name = "freeswitch.local-dev.mojolingo.com"
 
     freeswitch.vm.customize ['modifyvm', :id, '--natdnshostresolver1', 'on']
 
