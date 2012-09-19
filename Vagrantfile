@@ -67,8 +67,9 @@ Vagrant::Config.run do |config|
 
   config.vm.define :prism do |prism|
     domain = "prism.mojolingo-dev.local"
+    ip     = "192.168.10.12"
 
-    prism.vm.network :hostonly, "192.168.10.12"
+    prism.vm.network :hostonly, ip
     prism.vm.host_name = domain
     config.vm.customize ['modifyvm', :id, '--natdnshostresolver1', 'on']
     config.vm.customize ["modifyvm", :id, "--memory", 1024]
@@ -88,7 +89,9 @@ Vagrant::Config.run do |config|
         'name' => domain,
         'prism' => {
           'user' => 'vagrant',
-          'group' => 'vagrant'
+          'group' => 'vagrant',
+          'nat_mode' => true,
+          'public_ipv4' => ip
         },
         'rayo' => {
           'node' => {
