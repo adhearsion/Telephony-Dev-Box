@@ -69,6 +69,7 @@ Vagrant::Config.run do |config|
     domain = "prism.local-dev.mojolingo.com"
     ip     = "192.168.10.12"
 
+    prism.vm.box = 'centos63_64min'
     prism.vm.network :hostonly, ip
     prism.vm.host_name = domain
     prism.vm.customize ['modifyvm', :id, '--natdnshostresolver1', 'on']
@@ -77,8 +78,7 @@ Vagrant::Config.run do |config|
     prism.vm.provision :chef_solo do |chef|
       chef.cookbooks_path = "cookbooks"
       chef.data_bags_path = "data_bags"
-      chef.add_recipe "apt"
-      chef.add_recipe "java"
+      chef.add_recipe "yum"
       chef.add_recipe "jmxsh"
       chef.add_recipe "prism"
       chef.add_recipe "rayo"
