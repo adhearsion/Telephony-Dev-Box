@@ -4,7 +4,6 @@ Vagrant::Config.run do |config|
   config.vm.define :adhearsion do |adhearsion|
     adhearsion.vm.network :hostonly, "192.168.10.10"
     adhearsion.vm.host_name = "adhearsion.local-dev.mojolingo.com"
-    adhearsion.vm.customize ['modifyvm', :id, '--natdnshostresolver1', 'on']
 
     adhearsion.vm.provision :chef_solo do |chef|
       chef.cookbooks_path = "cookbooks"
@@ -44,7 +43,6 @@ Vagrant::Config.run do |config|
 
     asterisk.vm.network :hostonly, public_ip
     asterisk.vm.host_name = "asterisk.local-dev.mojolingo.com"
-    asterisk.vm.customize ['modifyvm', :id, '--natdnshostresolver1', 'on']
 
     asterisk.vm.provision :chef_solo do |chef|
       chef.cookbooks_path = "cookbooks"
@@ -72,7 +70,6 @@ Vagrant::Config.run do |config|
     prism.vm.box = 'centos63_64min'
     prism.vm.network :hostonly, ip
     prism.vm.host_name = domain
-    prism.vm.customize ['modifyvm', :id, '--natdnshostresolver1', 'on']
     prism.vm.customize ["modifyvm", :id, "--memory", 1024]
 
     prism.vm.provision :chef_solo do |chef|
@@ -107,8 +104,6 @@ Vagrant::Config.run do |config|
 
     freeswitch.vm.network :hostonly, public_ip
     freeswitch.vm.host_name = "freeswitch.local-dev.mojolingo.com"
-
-    freeswitch.vm.customize ['modifyvm', :id, '--natdnshostresolver1', 'on']
 
     freeswitch.vm.provision :chef_solo do |chef|
       chef.cookbooks_path = "cookbooks"
