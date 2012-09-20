@@ -44,7 +44,7 @@ Vagrant::Config.run do |config|
 
     asterisk.vm.network :hostonly, public_ip
     asterisk.vm.host_name = "asterisk.local-dev.mojolingo.com"
-    config.vm.customize ['modifyvm', :id, '--natdnshostresolver1', 'on']
+    asterisk.vm.customize ['modifyvm', :id, '--natdnshostresolver1', 'on']
 
     asterisk.vm.provision :chef_solo do |chef|
       chef.cookbooks_path = "cookbooks"
@@ -71,8 +71,8 @@ Vagrant::Config.run do |config|
 
     prism.vm.network :hostonly, ip
     prism.vm.host_name = domain
-    config.vm.customize ['modifyvm', :id, '--natdnshostresolver1', 'on']
-    config.vm.customize ["modifyvm", :id, "--memory", 1024]
+    prism.vm.customize ['modifyvm', :id, '--natdnshostresolver1', 'on']
+    prism.vm.customize ["modifyvm", :id, "--memory", 1024]
 
     prism.vm.provision :chef_solo do |chef|
       chef.cookbooks_path = "cookbooks"
