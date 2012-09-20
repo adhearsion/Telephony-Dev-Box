@@ -87,8 +87,10 @@ Vagrant::Config.run do |config|
         'prism' => {
           'user' => 'vagrant',
           'group' => 'vagrant',
+          'local_ipv4' => ip,
           'public_ipv4' => ip,
-          'nat_mode' => false,
+          'nat_mode' => true,
+          'relay_port' => false
         },
         'rayo' => {
           'node' => {
