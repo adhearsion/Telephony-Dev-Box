@@ -120,7 +120,14 @@ Vagrant::Config.run do |config|
       chef.json = {
         freeswitch: {
           tls_only: false,
-          local_ip: public_ip
+          local_ip: public_ip,
+          dialplan: {
+            head_fragments: '<extension name="Adhearsion">
+  <condition field="destination_number" expression=".*$">
+    <action application="park"/>
+  </condition>
+</extension>'
+          }
         }
       }
     end
