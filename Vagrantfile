@@ -71,6 +71,7 @@ Vagrant::Config.run do |config|
     prism.vm.customize ["modifyvm", :id, "--memory", 1024]
 
     prism.vm.provision :chef_solo do |chef|
+      chef.provisioning_path = "/vagrant/tmp"
       chef.cookbooks_path = "cookbooks"
       chef.data_bags_path = "data_bags"
       chef.add_recipe "yum"
