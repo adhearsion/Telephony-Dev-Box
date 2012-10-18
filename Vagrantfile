@@ -20,14 +20,10 @@ Vagrant::Config.run do |config|
         'rbenv' => {
           'user_installs' => [
             { 'user'    => 'vagrant',
-              'rubies'  => ['1.9.3-p194', 'jruby-1.6.8'],
+              'rubies'  => ['1.9.3-p194'],
               'global'  => '1.9.3-p194',
               'gems'    => {
                 '1.9.3-p194' => [
-                  { 'name' => 'bundler' },
-                  { 'name' => 'adhearsion' }
-                ],
-                'jruby-1.6.8' => [
                   { 'name' => 'bundler' },
                   { 'name' => 'adhearsion' }
                 ]
