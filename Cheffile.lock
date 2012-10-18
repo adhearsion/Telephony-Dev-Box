@@ -3,6 +3,7 @@ SITE
   specs:
     apt (1.4.8)
     java (1.6.0)
+    yum (1.0.0)
 
 GIT
   remote: git://github.com/mojolingo/asterisk-cookbook.git
@@ -25,6 +26,13 @@ GIT
   specs:
     rayo (0.0.1)
       prism (>= 0.0.0)
+
+GIT
+  remote: https://github.com/edelight/chef-solo-search.git
+  ref: master
+  sha: 83fd5c5da1d32f53dba782cafaf8fad9f17b76a8
+  specs:
+    chef-solo-search (0.4.0)
 
 GIT
   remote: https://github.com/fnichol/chef-rbenv.git
@@ -58,6 +66,7 @@ GIT
 DEPENDENCIES
   apt (>= 0)
   asterisk (>= 0)
+  chef-solo-search (>= 0)
   freeswitch (>= 0)
   java (>= 0)
   jmxsh (>= 0)
@@ -65,4 +74,5 @@ DEPENDENCIES
   rayo (>= 0)
   rbenv (>= 0)
   ruby_build (>= 0)
+  yum (>= 0)
 
