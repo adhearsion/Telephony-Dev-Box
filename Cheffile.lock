@@ -63,6 +63,11 @@ GIT
     prism (2.8.6)
       jmxsh (>= 0.0.0)
 
+PATH
+  remote: mojolingo-misc
+  specs:
+    mojolingo-misc (0.0.0)
+
 DEPENDENCIES
   apt (>= 0)
   asterisk (>= 0)
@@ -70,6 +75,7 @@ DEPENDENCIES
   freeswitch (>= 0)
   java (>= 0)
   jmxsh (>= 0)
+  mojolingo-misc (>= 0)
   prism (>= 0)
   rayo (>= 0)
   rbenv (>= 0)

@@ -77,6 +77,7 @@ Vagrant::Config.run do |config|
       chef.add_recipe "jmxsh"
       chef.add_recipe "prism"
       chef.add_recipe "rayo"
+      chef.add_recipe "mojolingo-misc::no_iptables"
 
       chef.log_level = :debug
 
