@@ -1,0 +1,68 @@
+SITE
+  remote: http://community.opscode.com/api/v1
+  specs:
+    apt (1.4.8)
+    java (1.6.0)
+
+GIT
+  remote: git://github.com/mojolingo/asterisk-cookbook.git
+  ref: master
+  sha: a0cf0188c4cf824d2389afd631761de6c29ced91
+  specs:
+    asterisk (0.5.0)
+
+GIT
+  remote: https://bitbucket.org/voxeolabs/jmxsh-chef
+  ref: master
+  sha: 6b134e474d424d3ea611d5cabe14bed0246d48dd
+  specs:
+    jmxsh (1.0.0)
+
+GIT
+  remote: https://bitbucket.org/voxeolabs/rayo-chef.git
+  ref: master
+  sha: 92498a2e2c5c7423b9f330ae2538d689cfbee6e5
+  specs:
+    rayo (0.0.1)
+      prism (>= 0.0.0)
+
+GIT
+  remote: https://github.com/fnichol/chef-rbenv.git
+  ref: master
+  sha: c4dbcc85e3d6dae0eb8c9dc507d5ee915b7ad480
+  specs:
+    rbenv (0.6.11)
+
+GIT
+  remote: https://github.com/fnichol/chef-ruby_build.git
+  ref: master
+  sha: c38d86966694b85db291625b245722208b40b61e
+  specs:
+    ruby_build (0.6.3)
+
+GIT
+  remote: https://github.com/mojolingo/freeswitch-cookbook.git
+  ref: master
+  sha: 1b853714187e77eccfc2f2fb6b647cc882f5ff3d
+  specs:
+    freeswitch (0.1.0)
+
+GIT
+  remote: https://github.com/mojolingo/prism-chef.git
+  ref: master
+  sha: 650afdda55454712501e0d6bb437afddf17e146d
+  specs:
+    prism (2.8.6)
+      jmxsh (>= 0.0.0)
+
+DEPENDENCIES
+  apt (>= 0)
+  asterisk (>= 0)
+  freeswitch (>= 0)
+  java (>= 0)
+  jmxsh (>= 0)
+  prism (>= 0)
+  rayo (>= 0)
+  rbenv (>= 0)
+  ruby_build (>= 0)
+

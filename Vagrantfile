@@ -1,5 +1,6 @@
 Vagrant::Config.run do |config|
-  config.vm.box = "precise64"
+  config.vm.box = 'precise64'
+  config.vm.box_url = 'http://files.vagrantup.com/precise64.box'
 
   config.vm.define :adhearsion do |adhearsion|
     adhearsion.vm.network :hostonly, "192.168.10.10"
@@ -68,6 +69,7 @@ Vagrant::Config.run do |config|
     ip     = "192.168.10.12"
 
     prism.vm.box = 'centos63_64min'
+    prism.vm.box_url = 'https://dl.dropbox.com/u/7225008/Vagrant/CentOS-6.3-x86_64-minimal.box'
     prism.vm.network :hostonly, ip
     prism.vm.host_name = domain
     prism.vm.customize ["modifyvm", :id, "--memory", 1024]

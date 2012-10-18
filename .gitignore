@@ -3,3 +3,5 @@ mojolingo_dev.box
 .vagrant
 .rvmrc
 vagrant/
+tmp
+cookbooks
