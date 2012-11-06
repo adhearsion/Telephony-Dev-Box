@@ -20,10 +20,10 @@ Vagrant::Config.run do |config|
         'rbenv' => {
           'user_installs' => [
             { 'user'    => 'vagrant',
-              'rubies'  => ['1.9.3-p194'],
-              'global'  => '1.9.3-p194',
+              'rubies'  => ['1.9.3-p286'],
+              'global'  => '1.9.3-p286',
               'gems'    => {
-                '1.9.3-p194' => [
+                '1.9.3-p286' => [
                   { 'name' => 'bundler' },
                   { 'name' => 'adhearsion' }
                 ]
