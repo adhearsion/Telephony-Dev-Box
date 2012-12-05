@@ -121,6 +121,7 @@ Vagrant::Config.run do |config|
 
       chef.json = {
         freeswitch: {
+          git_branch: 'master',
           tls_only: false,
           local_ip: public_ip,
           dialplan: {
