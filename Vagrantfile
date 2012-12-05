@@ -119,6 +119,8 @@ Vagrant::Config.run do |config|
       chef.add_recipe "apt"
       chef.add_recipe "freeswitch"
 
+      chef.log_level = :debug
+
       chef.json = {
         freeswitch: {
           git_branch: 'master',
