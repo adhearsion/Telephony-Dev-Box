@@ -46,6 +46,7 @@ Vagrant::Config.run do |config|
       chef.data_bags_path = "data_bags"
       chef.add_recipe "apt"
       chef.add_recipe "asterisk"
+      chef.add_recipe "asterisk::unimrcp"
 
       chef.log_level = :debug
 
@@ -134,6 +135,52 @@ Vagrant::Config.run do |config|
     <action application="park"/>
   </condition>
 </extension>'
+          }
+        }
+      }
+    end
+  end
+
+  config.vm.define :lumenvox do |lumenvox|
+    domain = "lumenvox.local-dev.mojolingo.com"
+    ip     = "192.168.10.14"
+
+    lumenvox.vm.box = 'centos63_64min'
+    lumenvox.vm.network :hostonly, ip
+    lumenvox.vm.host_name = domain
+
+    lumenvox.vm.provision :chef_solo do |chef|
+      chef.cookbooks_path = "cookbooks"
+      chef.data_bags_path = "data_bags"
+      chef.add_recipe "lumenvox"
+      chef.add_recipe "mojolingo-misc::no_iptables"
+
+      chef.log_level = :debug
+
+      chef.json = {
+        'lumenvox' => {
+          'tts' => {
+            'voices' => [
+                {"voice" => "Chloe",
+                 "version" => "10.5.110-1"
+                }
+            ]
+          },
+          'sre' => {
+            'language_packs' => [{
+              "language" => "BritishEnglish",
+              "version" => "10.5.110-1"
+            }]
+          },
+          'media_server' => {
+            'mrcp_server_ip' => ip
+          },
+          'client' => {
+            'license_servers' => ["208.52.151.220"],
+            'authentication_username' => ENV['LUMENVOX_USERNAME'],
+            'authentication_password' => ENV['LUMENVOX_PASSWORD'],
+            'default_tts_voice' => "Chloe",
+            'default_tts_language' => "en-GB"
           }
         }
       }

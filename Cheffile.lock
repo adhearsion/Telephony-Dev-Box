@@ -1,14 +1,18 @@
 SITE
   remote: http://community.opscode.com/api/v1
   specs:
-    apt (1.5.0)
-    java (1.6.4)
-    yum (2.0.2)
+    apt (1.8.4)
+    chef_handler (1.1.4)
+    java (1.11.2)
+      windows (>= 0.0.0)
+    windows (1.8.10)
+      chef_handler (>= 0.0.0)
+    yum (2.1.0)
 
 GIT
   remote: git://github.com/mojolingo/asterisk-cookbook.git
   ref: master
-  sha: a0cf0188c4cf824d2389afd631761de6c29ced91
+  sha: 6b9b94cc2f617702d22f323d3f79e2c56c2ef4ba
   specs:
     asterisk (0.5.0)
 
@@ -38,23 +42,23 @@ GIT
 GIT
   remote: https://github.com/edelight/chef-solo-search.git
   ref: master
-  sha: 83fd5c5da1d32f53dba782cafaf8fad9f17b76a8
+  sha: d84105ac63200425384f98a7999bd9c937bb2ae1
   specs:
     chef-solo-search (0.4.0)
 
 GIT
   remote: https://github.com/fnichol/chef-rbenv.git
   ref: master
-  sha: 46dccd87538d14ffbe40cfacee24e533e6062cde
+  sha: 3b1c59abc1134a50b0b8844954eca9a566aaffb8
   specs:
-    rbenv (0.7.1)
+    rbenv (0.7.3)
 
 GIT
   remote: https://github.com/fnichol/chef-ruby_build.git
   ref: master
-  sha: a809ead78dadd9cd3e8926d2efebac01d6bf93fa
+  sha: c940b5e9cd40eaba10d6285de6648f4d25fe959d
   specs:
-    ruby_build (0.7.1)
+    ruby_build (0.7.2)
 
 GIT
   remote: https://github.com/mojolingo/freeswitch-cookbook.git
@@ -62,6 +66,14 @@ GIT
   sha: f4e76ed3928cf6cb60c2a27646479f04c17010e3
   specs:
     freeswitch (0.1.0)
+
+GIT
+  remote: https://github.com/mojolingo/lumenvox-chef.git
+  ref: master
+  sha: f9c7568a06345965d347c0c37f6b41a6635fcd1f
+  specs:
+    lumenvox (0.0.2)
+      yum (>= 0.0.0)
 
 PATH
   remote: mojolingo-misc
@@ -75,6 +87,7 @@ DEPENDENCIES
   freeswitch (>= 0)
   java (>= 0)
   jmxsh (>= 0)
+  lumenvox (>= 0)
   mojolingo-misc (>= 0)
   prism (>= 0)
   rayo (>= 0)
