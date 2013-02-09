@@ -126,6 +126,7 @@ Vagrant::Config.run do |config|
           git_branch: 'master',
           tls_only: false,
           local_ip: public_ip,
+          inbound_proxy_media: false,
           dialplan: {
             head_fragments: '<extension name="Adhearsion">
   <condition field="destination_number" expression=".*$">

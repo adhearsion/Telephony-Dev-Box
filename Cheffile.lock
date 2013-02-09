@@ -1,9 +1,7 @@
 SITE
   remote: http://community.opscode.com/api/v1
   specs:
-    apt (1.5.0)
-    java (1.6.4)
-    yum (2.0.2)
+    apt (1.8.4)
 
 GIT
   remote: git://github.com/mojolingo/asterisk-cookbook.git
@@ -13,48 +11,11 @@ GIT
     asterisk (0.5.0)
 
 GIT
-  remote: https://bitbucket.org/voxeolabs/jmxsh-chef
-  ref: master
-  sha: 6b134e474d424d3ea611d5cabe14bed0246d48dd
-  specs:
-    jmxsh (1.0.0)
-
-GIT
-  remote: https://bitbucket.org/voxeolabs/prism-chef.git
-  ref: master
-  sha: 2bb40483eb0a4097cfa9b9af3ff6d1617b6b9127
-  specs:
-    prism (3.2.0)
-      jmxsh (>= 0.0.0)
-
-GIT
-  remote: https://bitbucket.org/voxeolabs/rayo-chef.git
-  ref: master
-  sha: 92498a2e2c5c7423b9f330ae2538d689cfbee6e5
-  specs:
-    rayo (0.0.1)
-      prism (>= 0.0.0)
-
-GIT
   remote: https://github.com/edelight/chef-solo-search.git
   ref: master
-  sha: 83fd5c5da1d32f53dba782cafaf8fad9f17b76a8
+  sha: d84105ac63200425384f98a7999bd9c937bb2ae1
   specs:
     chef-solo-search (0.4.0)
-
-GIT
-  remote: https://github.com/fnichol/chef-rbenv.git
-  ref: master
-  sha: 46dccd87538d14ffbe40cfacee24e533e6062cde
-  specs:
-    rbenv (0.7.1)
-
-GIT
-  remote: https://github.com/fnichol/chef-ruby_build.git
-  ref: master
-  sha: a809ead78dadd9cd3e8926d2efebac01d6bf93fa
-  specs:
-    ruby_build (0.7.1)
 
 GIT
   remote: https://github.com/mojolingo/freeswitch-cookbook.git
@@ -73,12 +34,5 @@ DEPENDENCIES
   asterisk (>= 0)
   chef-solo-search (>= 0)
   freeswitch (>= 0)
-  java (>= 0)
-  jmxsh (>= 0)
   mojolingo-misc (>= 0)
-  prism (>= 0)
-  rayo (>= 0)
-  rbenv (>= 0)
-  ruby_build (>= 0)
-  yum (>= 0)
 
