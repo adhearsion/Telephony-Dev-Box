@@ -15,16 +15,16 @@ GIT
 GIT
   remote: https://bitbucket.org/voxeolabs/jmxsh-chef
   ref: master
-  sha: 6b134e474d424d3ea611d5cabe14bed0246d48dd
+  sha: 225f44f863ef8adf47d911775fc2e4798370d4e6
   specs:
     jmxsh (1.0.0)
 
 GIT
   remote: https://bitbucket.org/voxeolabs/prism-chef.git
   ref: master
-  sha: 2bb40483eb0a4097cfa9b9af3ff6d1617b6b9127
+  sha: f1fce1e5ff9a083da5a714da550892e355e035a6
   specs:
-    prism (3.2.0)
+    prism (12.0.1)
       jmxsh (>= 0.0.0)
 
 GIT
