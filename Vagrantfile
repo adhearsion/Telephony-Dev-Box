@@ -85,6 +85,7 @@ Vagrant::Config.run do |config|
       chef.json = {
         'name' => domain,
         'prism' => {
+         'include_monitoring' => false,
           'artifacts' => {
             'url' => 'https://prism-app-server.s3.amazonaws.com/daily/prism-trunk_C201209131230_0-x64.bin',
             'checksum' => 'aa58eeea42ddc5c2e2ddef60c35d7d757508ebd1ff8b35d8e495a5c90e8b18bc'
