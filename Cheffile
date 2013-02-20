@@ -10,7 +10,7 @@ cookbook 'asterisk', git: 'git://github.com/mojolingo/asterisk-cookbook.git'
 cookbook 'freeswitch', git: 'https://github.com/mojolingo/freeswitch-cookbook.git'
 cookbook 'java'
 cookbook 'jmxsh', git: 'https://bitbucket.org/voxeolabs/jmxsh-chef'
-cookbook 'prism', git: 'https://bitbucket.org/voxeolabs/prism-chef.git',  :ref => "teldevbox"
+cookbook 'prism', git: 'https://bitbucket.org/voxeolabs/prism-chef.git'
 cookbook 'rayo', git: 'https://bitbucket.org/voxeolabs/rayo-chef.git'
 cookbook 'rbenv', git: 'https://github.com/fnichol/chef-rbenv.git'
 cookbook 'ruby_build', git: 'https://github.com/fnichol/chef-ruby_build.git'

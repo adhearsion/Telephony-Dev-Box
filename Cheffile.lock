@@ -21,8 +21,8 @@ GIT
 
 GIT
   remote: https://bitbucket.org/voxeolabs/prism-chef.git
-  ref: teldevbox
-  sha: c1e77fb87e8a34c7a45b5b804b7a6168c5f118cb
+  ref: master
+  sha: f1fce1e5ff9a083da5a714da550892e355e035a6
   specs:
     prism (12.0.1)
       jmxsh (>= 0.0.0)
