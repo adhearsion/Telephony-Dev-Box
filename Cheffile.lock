@@ -61,8 +61,8 @@ GIT
 
 GIT
   remote: https://github.com/mojolingo/freeswitch-cookbook.git
-  ref: master
-  sha: f4e76ed3928cf6cb60c2a27646479f04c17010e3
+  ref: feature/rayo
+  sha: eb7db286e128838dcb7f7b7788176c4a84a53d85
   specs:
     freeswitch (0.1.0)
 

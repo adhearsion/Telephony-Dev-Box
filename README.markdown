@@ -19,7 +19,7 @@ One thing to note is that the "adhearsion" VM is especially optional.  Most of t
 
 ## Usage
 
-### (Asterisk and FreeSWITCH Only): Register your softphone
+### (Asterisk only): Register your softphone
 The TDB VMs contain preconfigured "usera" and "userb" accounts for softphones. Use the following credentials to register:
 
 * Username: usera@asterisk.local-dev.mojolingo.com / Password: usera
@@ -31,9 +31,9 @@ Configure it to connect to the platform of your choice using one of the followin
 
 ```ruby
 ##
-# Use with Rayo (eg Voxeo PRISM)
+# Use with Rayo (eg FreeSWITCH or Voxeo PRISM)
 #
-config.punchblock.username = "usera@prism.local-dev.mojolingo.com" # Your XMPP JID for use with Rayo
+config.punchblock.username = "usera@freeswitch.local-dev.mojolingo.com" # Your XMPP JID for use with Rayo (swap 'freeswitch' for 'prism' as appropriate)
 config.punchblock.password = "1" # Your XMPP password
 ```
 
@@ -47,14 +47,5 @@ config.punchblock.password = "password" # Your AMI password
 config.punchblock.host = "asterisk.local-dev.mojolingo.com" # Your AMI host
 ```
 
-```ruby
-##
-# Use with FreeSWITCH
-#
-config.punchblock.platform = :freeswitch # Use FreeSWITCH
-config.punchblock.password = "ClueCon" # Your Inbound EventSocket password
-config.punchblock.host = "freeswitch.local-dev.mojolingo.com" # Your IES host
-```
-
 ### Test
-Boot your Adhearsion app and call in. On Asterisk or FreeSWITCH, dial `1` from a registered endpoint on the host system. On PRISM dial `usera@prism.local-dev.mojolingo.com` from a soft-phone on the host system.
+Boot your Adhearsion app and call in. On Asterisk, dial `1` from a registered endpoint on the host system. On FreeSWITCH dial `usera@freeswitch.local-dev.mojolingo.com`, or on PRISM dial `usera@prism.local-dev.mojolingo.com` from a soft-phone on the host system.
