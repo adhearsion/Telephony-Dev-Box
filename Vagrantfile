@@ -101,7 +101,8 @@ Vagrant::Config.run do |config|
           'node' => {
             'artifact' => 'http://ci.voxeolabs.net/jenkins/job/Rayo/313/artifact/rayo-war/target/rayo.b313.war',
             'checksum' => '4b44201a70e3192ed4a9bc298c4cb3de288ca775632ff4430214ecc850452061',
-            'domains'  => [domain]
+            'domains'  => [domain],
+            'routes'   => [".*=usera@#{domain}"]
           }
         }
       }
