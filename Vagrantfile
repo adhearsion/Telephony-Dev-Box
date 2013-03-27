@@ -109,6 +109,7 @@ Vagrant::Config.run do |config|
 
   config.vm.define :freeswitch do |freeswitch|
     public_ip = "192.168.10.13"
+    freeswitch.vm.share_folder("v-root", "/home/vagrant/shared", "shared", :nfs => true)
 
     freeswitch.vm.network :hostonly, public_ip
     freeswitch.vm.host_name = "freeswitch.local-dev.mojolingo.com"
@@ -136,6 +137,68 @@ Vagrant::Config.run do |config|
           }
         }
       }
+    end
+  end
+
+  config.vm.define :lumenvox do |lumenvox|
+    domain = "lumenvox.local-dev.mojolingo.com"
+    ip     = "192.168.10.14"
+
+    lumenvox.vm.box = 'centos63_64min'
+    lumenvox.vm.network :hostonly, ip
+    lumenvox.vm.host_name = domain
+
+    lumenvox.vm.provision :chef_solo do |chef|
+      chef.cookbooks_path = "cookbooks"
+      chef.data_bags_path = "data_bags"
+      chef.add_recipe "lumenvox"
+
+      chef.log_level = :debug
+
+      chef.json = {
+        'lumenvox' => {
+          'tts' => {
+            'voices' => [
+                {"voice" => "Chloe",
+                 "version" => "10.5.110-1"
+                }
+            ]
+          },
+          'sre' => {
+            'language_packs' => [{
+              "language" => "BritishEnglish",
+              "version" => "10.5.110-1"
+            }]
+          },
+          'media_server' => {
+            'mrcp_server_ip' => ip
+          },
+          'client' => {
+            'license_servers' => ["license1.lumenvox.com", "license2.lumenvox.com", "license3.lumenvox.com"],
+            'authentication_username' => ENV['LUMENVOX_USERNAME'],
+            'authentication_password' => ENV['LUMENVOX_PASSWORD'],
+            'default_tts_voice' => "Chloe",
+            'default_tts_language' => "en-GB"
+          }
+        }
+      }
+    end
+  end
+
+  config.vm.define :unimrcp do |unimrcp|
+    public_ip = "192.168.10.15"
+
+    unimrcp.vm.network :hostonly, public_ip
+    unimrcp.vm.host_name = "unimrcp.local-dev.mojolingo.com"
+
+    unimrcp.vm.provision :chef_solo do |chef|
+      chef.cookbooks_path = "cookbooks"
+      chef.data_bags_path = "data_bags"
+      chef.add_recipe "apt"
+
+      chef.log_level = :debug
+
+      chef.json = {}
     end
   end
 end

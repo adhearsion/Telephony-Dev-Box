@@ -2,6 +2,7 @@ SITE
   remote: http://community.opscode.com/api/v1
   specs:
     apt (1.8.4)
+    yum (2.1.0)
 
 GIT
   remote: git://github.com/mojolingo/asterisk-cookbook.git
@@ -24,6 +25,14 @@ GIT
   specs:
     freeswitch (0.1.0)
 
+GIT
+  remote: https://github.com/mojolingo/lumenvox-chef.git
+  ref: master
+  sha: f9c7568a06345965d347c0c37f6b41a6635fcd1f
+  specs:
+    lumenvox (0.0.2)
+      yum (>= 0.0.0)
+
 PATH
   remote: mojolingo-misc
   specs:
@@ -34,5 +43,7 @@ DEPENDENCIES
   asterisk (>= 0)
   chef-solo-search (>= 0)
   freeswitch (>= 0)
+  lumenvox (>= 0)
   mojolingo-misc (>= 0)
+  yum (>= 0)
 
