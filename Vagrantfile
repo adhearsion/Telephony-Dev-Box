@@ -85,9 +85,10 @@ Vagrant::Config.run do |config|
       chef.json = {
         'name' => domain,
         'prism' => {
+         'include_monitoring' => false,
           'artifacts' => {
-            'url' => 'https://prism-app-server.s3.amazonaws.com/daily/prism-trunk_C201209131230_0-x64.bin',
-            'checksum' => 'aa58eeea42ddc5c2e2ddef60c35d7d757508ebd1ff8b35d8e495a5c90e8b18bc'
+            'url' => 'https://prism-app-server.s3.amazonaws.com/daily/prism-12_3_0_C201303091903_0-x64.bin',
+            'checksum' => '9178241729dc89e9a78521341d759c7cc5c8f3ec0b06ba2dc6b4f39017643ea7'
           },
           'user' => 'vagrant',
           'group' => 'vagrant',
@@ -98,9 +99,10 @@ Vagrant::Config.run do |config|
         },
         'rayo' => {
           'node' => {
-            'artifact' => 'http://ci.voxeolabs.net/jenkins/job/Rayo/204/artifact/rayo-war/target/rayo.b204.war',
-            'checksum' => '46d928684555dc4c8aa2bf7f046b78f4a751f82c7c85aa8d4245101d38340635',
-            'domains'  => [domain]
+            'artifact' => 'http://ci.voxeolabs.net/jenkins/job/Rayo/313/artifact/rayo-war/target/rayo.b313.war',
+            'checksum' => '4b44201a70e3192ed4a9bc298c4cb3de288ca775632ff4430214ecc850452061',
+            'domains'  => [domain],
+            'routes'   => [".*=usera@#{domain}"]
           }
         }
       }

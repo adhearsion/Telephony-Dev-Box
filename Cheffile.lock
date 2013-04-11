@@ -1,12 +1,12 @@
 SITE
   remote: http://community.opscode.com/api/v1
   specs:
-    apt (1.8.4)
-    yum (2.1.0)
+    apt (1.9.2)
+    yum (2.2.0)
 
 GIT
   remote: git://github.com/mojolingo/asterisk-cookbook.git
-  ref: master
+  ref: feature/unimrcp
   sha: a0cf0188c4cf824d2389afd631761de6c29ced91
   specs:
     asterisk (0.5.0)
@@ -14,9 +14,23 @@ GIT
 GIT
   remote: https://github.com/edelight/chef-solo-search.git
   ref: master
-  sha: d84105ac63200425384f98a7999bd9c937bb2ae1
+  sha: 9327d688024ab8478e9e55422adc6b4cb2a22d5f
   specs:
     chef-solo-search (0.4.0)
+
+GIT
+  remote: https://github.com/fnichol/chef-rbenv.git
+  ref: master
+  sha: 3b1c59abc1134a50b0b8844954eca9a566aaffb8
+  specs:
+    rbenv (0.7.3)
+
+GIT
+  remote: https://github.com/fnichol/chef-ruby_build.git
+  ref: master
+  sha: c940b5e9cd40eaba10d6285de6648f4d25fe959d
+  specs:
+    ruby_build (0.7.2)
 
 GIT
   remote: https://github.com/mojolingo/freeswitch-cookbook.git
@@ -45,5 +59,7 @@ DEPENDENCIES
   freeswitch (>= 0)
   lumenvox (>= 0)
   mojolingo-misc (>= 0)
+  rbenv (>= 0)
+  ruby_build (>= 0)
   yum (>= 0)
 
