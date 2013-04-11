@@ -152,6 +152,7 @@ Vagrant::Config.run do |config|
       chef.cookbooks_path = "cookbooks"
       chef.data_bags_path = "data_bags"
       chef.add_recipe "lumenvox"
+      chef.add_recipe "mojolingo-misc::no_iptables"
 
       chef.log_level = :debug
 
@@ -174,7 +175,7 @@ Vagrant::Config.run do |config|
             'mrcp_server_ip' => ip
           },
           'client' => {
-            'license_servers' => ["license1.lumenvox.com", "license2.lumenvox.com", "license3.lumenvox.com"],
+            'license_servers' => ["208.52.151.220"],
             'authentication_username' => ENV['LUMENVOX_USERNAME'],
             'authentication_password' => ENV['LUMENVOX_PASSWORD'],
             'default_tts_voice' => "Chloe",
@@ -182,23 +183,6 @@ Vagrant::Config.run do |config|
           }
         }
       }
-    end
-  end
-
-  config.vm.define :unimrcp do |unimrcp|
-    public_ip = "192.168.10.15"
-
-    unimrcp.vm.network :hostonly, public_ip
-    unimrcp.vm.host_name = "unimrcp.local-dev.mojolingo.com"
-
-    unimrcp.vm.provision :chef_solo do |chef|
-      chef.cookbooks_path = "cookbooks"
-      chef.data_bags_path = "data_bags"
-      chef.add_recipe "apt"
-
-      chef.log_level = :debug
-
-      chef.json = {}
     end
   end
 end
