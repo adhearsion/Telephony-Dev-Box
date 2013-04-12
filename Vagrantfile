@@ -46,6 +46,7 @@ Vagrant::Config.run do |config|
       chef.data_bags_path = "data_bags"
       chef.add_recipe "apt"
       chef.add_recipe "asterisk"
+      chef.add_recipe "asterisk::unimrcp"
 
       chef.log_level = :debug
 

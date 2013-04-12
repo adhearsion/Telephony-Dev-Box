@@ -7,7 +7,7 @@ SITE
 GIT
   remote: git://github.com/mojolingo/asterisk-cookbook.git
   ref: feature/unimrcp
-  sha: a0cf0188c4cf824d2389afd631761de6c29ced91
+  sha: 9885a5f377ba9d46ec3463cba2731ca94050f557
   specs:
     asterisk (0.5.0)
 
