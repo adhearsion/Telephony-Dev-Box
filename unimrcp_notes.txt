@@ -1,0 +1,51 @@
+# PREREQUISITES
+sudo aptitude install pkg-config libsofia-sip-ua-dev libaprutil1-dev libtool automake autoconf asterisk-dev
+
+# LIBAPR
+wget -O apr-1.4.5.patch 'http://www.unimrcp.org/dependencies/apr-1.4.5.patch?attredirects=0&d=1'
+wget -O apr-1.4.5.tar.gz 'http://www.unimrcp.org/dependencies/apr-1.4.5.tar.gz?attredirects=0&d=1'
+tar xzf apr-1.4.5.tar.gz
+cd apr-1.4.5/
+patch -p1 -i ../apr-1.4.5.patch
+./configure --prefix=/opt/libapr
+make
+sudo make install
+
+# LIBAPR-UTIL
+wget -O apr-util-1.3.12.tar.gz 'http://www.unimrcp.org/dependencies/apr-util-1.3.12.tar.gz?attredirects=0&d=1'
+tar xzf apr-util-1.3.12.tar.gz
+./configure --with-apr=/opt/libapr
+make
+sudo make install
+
+# UNIMRCP
+svn checkout http://unimrcp.googlecode.com/svn/trunk/ unimrcp-read-only
+cd unimrcp-read-only/
+./bootstrap
+./configure --with-apr=/opt/libapr --prefix=/opt/unimrcp --with-sofia-sip=/usr --with-apr-util=/opt/libapr
+make
+sudo make install
+
+# ASTERISK-UNIMRCP
+svn checkout -r 1828 http://unimrcp.googlecode.com/svn/solutions/asterisk-unimrcp asterisk-unimrcp
+cd asterisk-unimrcp/
+./bootstrap
+./configure --with-unimrcp=/opt/unimrcp
+make
+sudo make
+
+# CONFIG
+Put this in unimrcpclient.xml
+<ip>192.168.10.11</ip>
+<!-- <ext-ip>a.b.c.d</ext-ip> -->
+<server-ip>192.168.10.14</server-ip>
+And this in <settings>
+<sip-settings id="UniMRCP-SIP-Settings">
+<server-port>5060</server-port>
+</sip-settings>
+
+# ASTERISK CONFIG
+mrcp.conf > remember to set all IPs EXPLICITLY (no 0.0.0.0)
+
+# LUMENVOX SERVER
+Open firewall ports (iptables -F)
