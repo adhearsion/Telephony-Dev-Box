@@ -43,13 +43,6 @@ GIT
     chef-solo-search (0.4.0)
 
 GIT
-  remote: https://github.com/fnichol/chef-rbenv.git
-  ref: master
-  sha: 46dccd87538d14ffbe40cfacee24e533e6062cde
-  specs:
-    rbenv (0.7.1)
-
-GIT
   remote: https://github.com/fnichol/chef-ruby_build.git
   ref: master
   sha: a809ead78dadd9cd3e8926d2efebac01d6bf93fa
@@ -67,6 +60,11 @@ PATH
   remote: mojolingo-misc
   specs:
     mojolingo-misc (0.0.0)
+
+PATH
+  remote: rbenv
+  specs:
+    rbenv (0.7.1)
 
 DEPENDENCIES
   apt (>= 0)
