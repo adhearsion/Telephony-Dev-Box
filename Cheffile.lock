@@ -36,18 +36,18 @@ GIT
       prism (>= 0.0.0)
 
 GIT
+  remote: https://github.com/JustinAiken/chef-rbenv.git
+  ref: 69c41e217a5e497ddb4d9285ccc4d2e058e1f08a
+  sha: 69c41e217a5e497ddb4d9285ccc4d2e058e1f08a
+  specs:
+    rbenv (0.7.1)
+
+GIT
   remote: https://github.com/edelight/chef-solo-search.git
   ref: master
   sha: 83fd5c5da1d32f53dba782cafaf8fad9f17b76a8
   specs:
     chef-solo-search (0.4.0)
-
-GIT
-  remote: https://github.com/fnichol/chef-rbenv.git
-  ref: master
-  sha: 46dccd87538d14ffbe40cfacee24e533e6062cde
-  specs:
-    rbenv (0.7.1)
 
 GIT
   remote: https://github.com/fnichol/chef-ruby_build.git
