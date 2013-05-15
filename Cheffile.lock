@@ -3,7 +3,7 @@ SITE
   specs:
     apt (1.8.4)
     chef_handler (1.1.4)
-    java (1.11.2)
+    java (1.11.4)
       windows (>= 0.0.0)
     windows (1.8.10)
       chef_handler (>= 0.0.0)
