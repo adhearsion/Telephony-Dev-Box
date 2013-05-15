@@ -1,10 +1,10 @@
-Vagrant::Config.run do |config|
+Vagrant.configure("2") do |config|
   config.vm.box = 'precise64'
   config.vm.box_url = 'http://files.vagrantup.com/precise64.box'
 
   config.vm.define :adhearsion do |adhearsion|
-    adhearsion.vm.network :hostonly, "192.168.10.10"
-    adhearsion.vm.host_name = "adhearsion.local-dev.mojolingo.com"
+    adhearsion.vm.network :private_network, ip: "192.168.10.10"
+    adhearsion.vm.hostname = "adhearsion.local-dev.mojolingo.com"
 
     adhearsion.vm.provision :chef_solo do |chef|
       chef.cookbooks_path = "cookbooks"
@@ -38,8 +38,8 @@ Vagrant::Config.run do |config|
   config.vm.define :asterisk do |asterisk|
     public_ip = "192.168.10.11"
 
-    asterisk.vm.network :hostonly, public_ip
-    asterisk.vm.host_name = "asterisk.local-dev.mojolingo.com"
+    asterisk.vm.network :private_network, ip: public_ip
+    asterisk.vm.hostname = "asterisk.local-dev.mojolingo.com"
 
     asterisk.vm.provision :chef_solo do |chef|
       chef.cookbooks_path = "cookbooks"
@@ -67,9 +67,12 @@ Vagrant::Config.run do |config|
 
     prism.vm.box = 'centos63_64min'
     prism.vm.box_url = 'https://dl.dropbox.com/u/7225008/Vagrant/CentOS-6.3-x86_64-minimal.box'
-    prism.vm.network :hostonly, ip
-    prism.vm.host_name = domain
-    prism.vm.customize ["modifyvm", :id, "--memory", 1024]
+    prism.vm.network :private_network, ip: ip
+    prism.vm.hostname = domain
+
+    prism.vm.provider :virtualbox do |vb|
+      vb.customize ["modifyvm", :id, "--memory", 1024]
+    end
 
     prism.vm.provision :chef_solo do |chef|
       chef.provisioning_path = "/vagrant/tmp"
@@ -113,8 +116,8 @@ Vagrant::Config.run do |config|
   config.vm.define :freeswitch do |freeswitch|
     public_ip = "192.168.10.13"
 
-    freeswitch.vm.network :hostonly, public_ip
-    freeswitch.vm.host_name = "freeswitch.local-dev.mojolingo.com"
+    freeswitch.vm.network :private_network, ip: public_ip
+    freeswitch.vm.hostname = "freeswitch.local-dev.mojolingo.com"
 
     freeswitch.vm.provision :chef_solo do |chef|
       chef.cookbooks_path = "cookbooks"
@@ -146,8 +149,8 @@ Vagrant::Config.run do |config|
     ip     = "192.168.10.14"
 
     lumenvox.vm.box = 'centos63_64min'
-    lumenvox.vm.network :hostonly, ip
-    lumenvox.vm.host_name = domain
+    lumenvox.vm.network :private_network, ip: ip
+    lumenvox.vm.hostname = domain
 
     lumenvox.vm.provision :chef_solo do |chef|
       chef.cookbooks_path = "cookbooks"
