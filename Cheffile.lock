@@ -45,9 +45,9 @@ GIT
 GIT
   remote: https://github.com/fnichol/chef-rbenv.git
   ref: master
-  sha: 46dccd87538d14ffbe40cfacee24e533e6062cde
+  sha: 3b1c59abc1134a50b0b8844954eca9a566aaffb8
   specs:
-    rbenv (0.7.1)
+    rbenv (0.7.3)
 
 GIT
   remote: https://github.com/fnichol/chef-ruby_build.git

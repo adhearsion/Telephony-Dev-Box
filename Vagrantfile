@@ -10,7 +10,7 @@ Vagrant::Config.run do |config|
       chef.cookbooks_path = "cookbooks"
       chef.data_bags_path = "data_bags"
       chef.add_recipe "apt"
-      chef.add_recipe "java"
+      # chef.add_recipe "java"
       chef.add_recipe "ruby_build"
       chef.add_recipe "rbenv::user"
 
@@ -20,10 +20,10 @@ Vagrant::Config.run do |config|
         'rbenv' => {
           'user_installs' => [
             { 'user'    => 'vagrant',
-              'rubies'  => ['1.9.3-p286'],
-              'global'  => '1.9.3-p286',
+              'rubies'  => ['1.9.3-p392'],
+              'global'  => '1.9.3-p392',
               'gems'    => {
-                '1.9.3-p286' => [
+                '1.9.3-p392' => [
                   { 'name' => 'bundler' },
                   { 'name' => 'adhearsion' }
                 ]
