@@ -6,6 +6,10 @@ Vagrant.configure("2") do |config|
     adhearsion.vm.network :private_network, ip: "192.168.10.10"
     adhearsion.vm.hostname = "adhearsion.local-dev.mojolingo.com"
 
+    adhearsion.vm.provider :virtualbox do |vb|
+      vb.name = "TDB-adhearsion"
+    end
+
     adhearsion.vm.provision :chef_solo do |chef|
       chef.cookbooks_path = "cookbooks"
       chef.data_bags_path = "data_bags"
@@ -41,6 +45,10 @@ Vagrant.configure("2") do |config|
     asterisk.vm.network :private_network, ip: public_ip
     asterisk.vm.hostname = "asterisk.local-dev.mojolingo.com"
 
+    asterisk.vm.provider :virtualbox do |vb|
+      vb.name = "TDB-asterisk"
+    end
+
     asterisk.vm.provision :chef_solo do |chef|
       chef.cookbooks_path = "cookbooks"
       chef.data_bags_path = "data_bags"
@@ -71,6 +79,7 @@ Vagrant.configure("2") do |config|
     prism.vm.hostname = domain
 
     prism.vm.provider :virtualbox do |vb|
+      vb.name = "TDB-prism"
       vb.customize ["modifyvm", :id, "--memory", 1024]
     end
 
@@ -119,6 +128,10 @@ Vagrant.configure("2") do |config|
     freeswitch.vm.network :private_network, ip: public_ip
     freeswitch.vm.hostname = "freeswitch.local-dev.mojolingo.com"
 
+    freeswitch.vm.provider :virtualbox do |vb|
+      vb.name = "TDB-freeswitch"
+    end
+
     freeswitch.vm.provision :chef_solo do |chef|
       chef.cookbooks_path = "cookbooks"
       chef.data_bags_path = "data_bags"
@@ -153,6 +166,7 @@ Vagrant.configure("2") do |config|
     lumenvox.vm.hostname = domain
 
     lumenvox.vm.provider :virtualbox do |vb|
+      vb.name = "TDB-lumenvox"
       vb.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
     end
 
