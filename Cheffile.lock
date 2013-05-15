@@ -34,10 +34,9 @@ GIT
 GIT
   remote: https://bitbucket.org/voxeolabs/rayo-chef.git
   ref: master
-  sha: 92498a2e2c5c7423b9f330ae2538d689cfbee6e5
+  sha: faefaff392f0e7ece7b8ab8b8d3172ed0d14172a
   specs:
-    rayo (0.0.1)
-      prism (>= 0.0.0)
+    rayo (1.0.12)
 
 GIT
   remote: https://github.com/edelight/chef-solo-search.git
