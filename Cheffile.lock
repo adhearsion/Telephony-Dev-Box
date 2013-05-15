@@ -12,7 +12,7 @@ SITE
 GIT
   remote: git://github.com/mojolingo/asterisk-cookbook.git
   ref: master
-  sha: 6b9b94cc2f617702d22f323d3f79e2c56c2ef4ba
+  sha: 086f05f0756639183d43d8b799a7d1f277ea2e08
   specs:
     asterisk (0.5.0)
 
