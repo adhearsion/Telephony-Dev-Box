@@ -152,6 +152,10 @@ Vagrant.configure("2") do |config|
     lumenvox.vm.network :private_network, ip: ip
     lumenvox.vm.hostname = domain
 
+    lumenvox.vm.provider :virtualbox do |vb|
+      vb.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
+    end
+
     lumenvox.vm.provision :chef_solo do |chef|
       chef.cookbooks_path = "cookbooks"
       chef.data_bags_path = "data_bags"
