@@ -59,6 +59,7 @@ Vagrant.configure("2") do |config|
       chef.add_recipe "apt"
       chef.add_recipe "asterisk"
       chef.add_recipe "asterisk::package"
+      chef.add_recipe "asterisk::config"
       chef.add_recipe "asterisk::unimrcp"
 
       chef.log_level = :debug
