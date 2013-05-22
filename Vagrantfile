@@ -3,7 +3,7 @@ Vagrant.configure("2") do |config|
   config.vm.box_url = 'http://files.vagrantup.com/precise64.box'
 
   config.vm.define :adhearsion do |adhearsion|
-    adhearsion.vm.network :private_network, ip: "192.168.10.10"
+    adhearsion.vm.network :private_network, ip: "10.203.175.10"
     adhearsion.vm.hostname = "adhearsion.local-dev.mojolingo.com"
 
     adhearsion.vm.provider :virtualbox do |vb|
@@ -44,7 +44,7 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define :asterisk do |asterisk|
-    public_ip = "192.168.10.11"
+    public_ip = "10.203.175.11"
 
     asterisk.vm.network :private_network, ip: public_ip
     asterisk.vm.hostname = "asterisk.local-dev.mojolingo.com"
@@ -77,7 +77,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.define :prism do |prism|
     domain = "prism.local-dev.mojolingo.com"
-    ip     = "192.168.10.12"
+    ip     = "10.203.175.12"
 
     prism.vm.box = 'centos63_64min'
     prism.vm.box_url = 'https://dl.dropbox.com/u/7225008/Vagrant/CentOS-6.3-x86_64-minimal.box'
@@ -129,7 +129,7 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define :freeswitch do |freeswitch|
-    public_ip = "192.168.10.13"
+    public_ip = "10.203.175.13"
 
     freeswitch.vm.network :private_network, ip: public_ip
     freeswitch.vm.hostname = "freeswitch.local-dev.mojolingo.com"
@@ -165,7 +165,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.define :lumenvox do |lumenvox|
     domain = "lumenvox.local-dev.mojolingo.com"
-    ip     = "192.168.10.14"
+    ip     = "10.203.175.14"
 
     lumenvox.vm.box = 'centos63_64min'
     lumenvox.vm.network :private_network, ip: ip
