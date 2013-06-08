@@ -69,7 +69,12 @@ Vagrant.configure("2") do |config|
           manager_ip_address: public_ip,
           manager_permit: '0.0.0.0/0.0.0.0',
           manager_read_perms: %w{all},
-          manager_write_perms: %w{all}
+          manager_write_perms: %w{all},
+          unimrcp: {
+            server_ip: "10.203.175.14",
+            client_ip: public_ip,
+            rtp_ip: public_ip,
+          }
         }
       }
     end
