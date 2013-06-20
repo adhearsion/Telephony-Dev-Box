@@ -24,14 +24,14 @@ Vagrant.configure("2") do |config|
         'rbenv' => {
           'user_installs' => [
             { 'user'    => 'vagrant',
-              'rubies'  => ['2.0.0-p195', 'jruby-1.7.2'],
+              'rubies'  => ['2.0.0-p195', 'jruby-1.7.4'],
               'global'  => '2.0.0-p195',
               'gems'    => {
                 '2.0.0-p195' => [
                   { 'name' => 'bundler' },
                   { 'name' => 'adhearsion' }
                 ],
-                'jruby-1.7.2' => [
+                'jruby-1.7.4' => [
                   { 'name' => 'bundler' },
                   { 'name' => 'adhearsion' }
                 ]
