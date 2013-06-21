@@ -4,6 +4,8 @@
 site 'http://community.opscode.com/api/v1'
 
 cookbook 'mojolingo-misc', path: 'mojolingo-misc'
+cookbook 'sipp', path: 'sipp'
+cookbook 'wav2rtp', path: 'wav2rtp'
 
 cookbook 'apt'
 cookbook 'asterisk', git: 'git://github.com/mojolingo/asterisk-cookbook.git'
