@@ -24,3 +24,12 @@ EOF
     $?.exitstatus == 99
   end
 end
+
+script "copy pcap files to home directory" do
+  interpreter "/bin/bash"
+  cwd "/home/vagrant"
+  code <<-EOF
+  cp -rp /tmp/sipp-3.3/pcap .
+  chown -R vagrant:vagrant pcap/
+  EOF
+end
