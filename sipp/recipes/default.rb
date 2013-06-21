@@ -5,7 +5,7 @@ remote_file '/tmp/sipp-3.3.tar.gz' do
   checksum "8c1d513423f9dabee799e738b737e311"
 end
 
-file '/tmp/sipp_dyn_pcap.diff' do
+cookbook_file '/tmp/sipp_dyn_pcap.diff' do
   source 'sipp_dyn_pcap.diff'
 end
 
