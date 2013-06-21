@@ -1,0 +1,226 @@
+diff -bruN sipp_old/actions.cpp sipp_new/actions.cpp
+--- sipp_old/actions.cpp	2009-04-15 13:10:03.000000000 +0100
++++ sipp_new/actions.cpp	2011-11-02 17:44:52.000000000 +0000
+@@ -146,7 +146,7 @@
+   } else if (M_action == E_AT_VAR_TO_DOUBLE) {
+       printf("Type[%d] - toDouble varId[%s]", M_action, display_scenario->allocVars->getName(M_varId));
+ #ifdef PCAPPLAY
+-  } else if ((M_action == E_AT_PLAY_PCAP_AUDIO) || (M_action == E_AT_PLAY_PCAP_VIDEO)) {
++  } else if ((M_action == E_AT_PLAY_PCAP_AUDIO) || (M_action == E_AT_PLAY_DYN_PCAP_AUDIO) || (M_action == E_AT_PLAY_PCAP_VIDEO)) {
+       printf("Type[%d] - file[%s]", M_action, M_pcapArgs->file);
+ #endif
+   } else {
+diff -bruN sipp_old/actions.hpp sipp_new/actions.hpp
+--- sipp_old/actions.hpp	2009-04-15 13:10:03.000000000 +0100
++++ sipp_new/actions.hpp	2011-11-03 10:09:58.000000000 +0000
+@@ -68,6 +68,7 @@
+       E_AT_SET_DEST,
+       E_AT_CLOSE_CON,
+ #ifdef PCAPPLAY
++      E_AT_PLAY_DYN_PCAP_AUDIO,
+       E_AT_PLAY_PCAP_AUDIO,
+       E_AT_PLAY_PCAP_VIDEO,
+ #endif
+diff -bruN sipp_old/call.cpp sipp_new/call.cpp
+--- sipp_old/call.cpp	2011-06-14 07:27:20.000000000 +0100
++++ sipp_new/call.cpp	2011-11-21 11:31:16.000000000 +0000
+@@ -3798,10 +3798,21 @@
+       }
+ #ifdef PCAPPLAY
+     } else if ((currentAction->getActionType() == CAction::E_AT_PLAY_PCAP_AUDIO) ||
++               (currentAction->getActionType() == CAction::E_AT_PLAY_DYN_PCAP_AUDIO) ||
+ 	(currentAction->getActionType() == CAction::E_AT_PLAY_PCAP_VIDEO)) {
+       play_args_t *play_args;
+       if (currentAction->getActionType() == CAction::E_AT_PLAY_PCAP_AUDIO) {
+ 	play_args = &(this->play_args_a);
++
++        // Play PCAP in static mode
++        (currentAction->getPcapPkts())->dynamic_play = 0;
++
++      } else if (currentAction->getActionType() == CAction::E_AT_PLAY_DYN_PCAP_AUDIO) {
++	    play_args = &(this->play_args_a);
++
++        // Play PCAP in dynamic mode
++        (currentAction->getPcapPkts())->dynamic_play = 1;
++
+       } else if (currentAction->getActionType() == CAction::E_AT_PLAY_PCAP_VIDEO) {
+ 	play_args = &(this->play_args_v);
+       }
+diff -bruN sipp_old/prepare_pcap.h sipp_new/prepare_pcap.h
+--- sipp_old/prepare_pcap.h	2007-10-05 09:59:55.000000000 +0100
++++ sipp_new/prepare_pcap.h	2011-11-21 11:33:34.000000000 +0000
+@@ -58,6 +58,8 @@
+   int partial_check;
+ } pcap_pkt;
+ 
++#define PCAP_TIMESTAMP_SHIFT 1000
++#define PCAP_SEQ_NUM_SHIFT 1000
+ #define PCAP_MAXPACKET	1500
+ typedef struct
+ {
+@@ -66,6 +68,16 @@
+   u_long max_length;
+   pcap_pkt *max;
+   pcap_pkt *pkts;
++  
++  /* 
++   * Indicates if the RTP packets must be sent with changed sequence numbers 
++   * (dynamic play), rather than the original ones (static play). 
++   * 
++   * The dynamic play mode allow the SIPP to play the same PCAP file more than
++   * once, because each time the file is played, different sequence numbers are
++   * used.
++   */
++  short int dynamic_play;
+ } pcap_pkts;
+ 
+ #ifdef __cplusplus
+diff -bruN sipp_old/scenario.cpp sipp_new/scenario.cpp
+--- sipp_old/scenario.cpp	2009-04-15 13:10:03.000000000 +0100
++++ sipp_new/scenario.cpp	2011-11-03 11:49:44.000000000 +0000
+@@ -1592,6 +1592,10 @@
+ 	tmpAction->setPcapArgs(ptr);
+ 	tmpAction->setActionType(CAction::E_AT_PLAY_PCAP_AUDIO);
+ 	hasMedia = 1;
++      } else if ((ptr = xp_get_value((char *) "play_dyn_pcap_audio"))) {
++	tmpAction->setPcapArgs(ptr);
++	tmpAction->setActionType(CAction::E_AT_PLAY_DYN_PCAP_AUDIO);
++	hasMedia = 1;
+       } else if ((ptr = xp_get_value((char *) "play_pcap_video"))) {
+ 	tmpAction->setPcapArgs(ptr);
+ 	tmpAction->setActionType(CAction::E_AT_PLAY_PCAP_VIDEO);
+@@ -1599,6 +1603,8 @@
+ #else
+       } else if ((ptr = xp_get_value((char *) "play_pcap_audio"))) {
+ 	ERROR("play_pcap_audio requires pcap support! Please recompile SIPp");
++      } else if ((ptr = xp_get_value((char *) "play_dyn_pcap_audio"))) {
++        ERROR("play_dyn_pcap_audio requires pcap support! Please recompile SIPp");
+       } else if ((ptr = xp_get_value((char *) "play_pcap_video"))) {
+ 	ERROR("play_pcap_video requires pcap support! Please recompile SIPp");
+ #endif
+diff -bruN sipp_old/send_packets.c sipp_new/send_packets.c
+--- sipp_old/send_packets.c	2009-05-28 12:01:17.000000000 +0100
++++ sipp_new/send_packets.c	2011-11-07 23:52:04.000000000 +0000
+@@ -60,6 +60,8 @@
+ #include "prepare_pcap.h"
+ #include "screen.hpp"
+ 
++extern volatile unsigned long pcap_data_played;
++extern volatile unsigned long pcap_timestamp_shift;
+ extern volatile unsigned long rtp_pckts_pcap;
+ extern volatile unsigned long rtp_bytes_pcap;
+ extern int media_ip_is_ipv6;
+@@ -122,11 +124,11 @@
+ }
+ 
+ 
+-int
+-send_packets (play_args_t * play_args)
++int send_packets (play_args_t * play_args)
+ {
+   int ret, sock, port_diff;
+   pcap_pkt *pkt_index, *pkt_max;
++  short int dynamic_play;
+   uint16_t *from_port, *to_port;
+   struct timeval didsleep = { 0, 0 };
+   struct timeval start = { 0, 0 };
+@@ -170,6 +172,7 @@
+ 
+   pkt_index = pkts->pkts;
+   pkt_max = pkts->max;
++  dynamic_play = pkts->dynamic_play;
+ 	
+   if (media_ip_is_ipv6) {
+     memset(&to6, 0, sizeof(to6));
+@@ -186,11 +189,70 @@
+    */
+   pthread_cleanup_push(send_packets_cleanup, ((void *) sock));
+ 
++  unsigned char last_pcap_seq_num[2] = {0, 0};
++  unsigned short int pcap_seq_num_diff = 0;
++  int tstamp = 0;
++  unsigned short int pcap_total_duration = 0;
++  if (dynamic_play) {
++    // Calculate the timestamp to be used in the current PCAP file
++    tstamp = pcap_timestamp_shift + PCAP_TIMESTAMP_SHIFT; 
++  }
+ 
+   while (pkt_index < pkt_max) {
+     memcpy(udp, pkt_index->data, pkt_index->pktlen);
+-    port_diff = ntohs (udp->uh_dport) - pkts->base;
++    
++    if (dynamic_play) {
++
++      // Retrieve the original sequence number (hexadecimal) from the PCAP data
++      unsigned char seq_num_hex[2];
++      seq_num_hex[0] = (unsigned char) buffer[10];
++      seq_num_hex[1] = (unsigned char) buffer[11];
++
++      // Retrieve the original timestamp (hexadecimal) from the PCAP data
++      unsigned char timestamp_hex[4];
++      timestamp_hex[0] = (unsigned char) buffer[12];
++      timestamp_hex[1] = (unsigned char) buffer[13];
++      timestamp_hex[2] = (unsigned char) buffer[14];
++      timestamp_hex[3] = (unsigned char) buffer[15];
++
++      // Check if the sequence number has changed
++      if (last_pcap_seq_num[0] != seq_num_hex[0] ||
++          last_pcap_seq_num[1] != seq_num_hex[1]) {
++
++        // Get the duration of the current packet
++        unsigned short int duration = 0;
++        duration = (unsigned char) buffer[22];
++        duration = duration << 8;
++        duration = duration  | (unsigned char) buffer[23];
++        pcap_total_duration += duration;
++
++        last_pcap_seq_num[0] = seq_num_hex[0];
++        last_pcap_seq_num[1] = seq_num_hex[1];
++
++        // Calculate the new sequence number, based on the pcap_data_played
++        pcap_seq_num_diff = (pcap_data_played + PCAP_SEQ_NUM_SHIFT);
++        pcap_data_played++;
++      }
++        
++      // Store the calculated sequence number into the PCAP data
++      buffer[10] = ((pcap_seq_num_diff & 0xff00) >> 8);
++      buffer[11] = pcap_seq_num_diff & 0x00ff;
++    
++      // Store the calculated timestamp into the PCAP data
++      buffer[12] = ((tstamp & 0xff000000) >> 24);
++      buffer[13] = ((tstamp & 0x00ff0000) >> 16);
++      buffer[14] = ((tstamp & 0x0000ff00) >> 8);
++      buffer[15] = ((tstamp & 0x000000ff));
++
++      // Recalc the partial checksum due to the changes on the Sequence Number
++      udp->uh_sum = 0 ;
++      pkt_index->partial_check = 
++                    check((u_int16_t *) &udp->uh_ulen, pkt_index->pktlen - 4) + 
++                    ntohs(IPPROTO_UDP + pkt_index->pktlen);
++    }
++
+     // modify UDP ports
++    port_diff = ntohs (udp->uh_dport) - pkts->base;
+     udp->uh_sport = htons(port_diff + *from_port);
+     udp->uh_dport = htons(port_diff + *to_port);
+ 
+@@ -243,6 +305,7 @@
+     memcpy (&last, &(pkt_index->ts), sizeof (struct timeval));
+     pkt_index++;
+ 	}
++  pcap_timestamp_shift += pcap_total_duration;
+ 
+   /* Closing the socket is handled by pthread_cleanup_push()/pthread_cleanup_pop() */
+   pthread_cleanup_pop(1);
+diff -bruN sipp_old/sipp.hpp sipp_new/sipp.hpp
+--- sipp_old/sipp.hpp	2010-11-08 13:02:28.000000000 +0000
++++ sipp_new/sipp.hpp	2011-11-07 15:44:10.000000000 +0000
+@@ -348,6 +348,8 @@
+ extern int           resynch_recv                 _DEFVAL(0);
+ extern unsigned long rtp_pckts                    _DEFVAL(0);
+ extern unsigned long rtp_bytes                    _DEFVAL(0);
++extern unsigned long pcap_data_played             _DEFVAL(0);
++extern unsigned long pcap_timestamp_shift         _DEFVAL(0);
+ extern unsigned long rtp_pckts_pcap               _DEFVAL(0);
+ extern unsigned long rtp_bytes_pcap               _DEFVAL(0);
+ extern unsigned long rtp2_pckts                   _DEFVAL(0);
