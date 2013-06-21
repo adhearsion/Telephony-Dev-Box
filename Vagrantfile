@@ -235,6 +235,7 @@ Vagrant.configure("2") do |config|
       chef.data_bags_path = "data_bags"
       chef.add_recipe "apt"
       chef.add_recipe "sipp"
+      chef.add_recipe "wav2rtp"
       chef.log_level = :debug
     end
   end
