@@ -220,4 +220,23 @@ Vagrant.configure("2") do |config|
       }
     end
   end
+
+  config.vm.define :loadtest do |loadtest|
+    loadtest.vm.box = 'precise64'
+    loadtest.vm.network :private_network, ip: '10.203.175.15'
+    loadtest.vm.hostname = 'loadtest.local-dev.mojolingo.com'
+
+    loadtest.vm.provider :virtualbox do |vb|
+      vb.name = "TDB-loadtest"
+    end
+
+    loadtest.vm.provision :chef_solo do |chef|
+      chef.cookbooks_path = "cookbooks"
+      chef.data_bags_path = "data_bags"
+      chef.add_recipe "apt"
+      chef.add_recipe "sipp"
+      chef.add_recipe "wav2rtp"
+      chef.log_level = :debug
+    end
+  end
 end
