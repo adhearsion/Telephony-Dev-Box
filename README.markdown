@@ -18,13 +18,15 @@ One thing to note is that the "adhearsion" VM is especially optional.  Most of t
 
 ## Usage
 
-0. (Asterisk and FreeSWITCH Only): Register your softphone
+### (Asterisk and FreeSWITCH Only): Register your softphone
 The TDB VMs contain preconfigured "usera" and "userb" accounts for softphones. Use the following credentials to register:
 
 * Username: usera@asterisk.local-dev.mojolingo.com / Password: usera
 * Username: userb@asterisk.local-dev.mojolingo.com / Password: userb
 
-1. Create an Adhearsion app and configure it to connect to the platform of your choice using one of the following samples:
+### Create an Adhearsion app
+
+Configure it to connect to the platform of your choice using one of the following samples:
 
 ```ruby
 ##
@@ -53,4 +55,5 @@ config.punchblock.password = "ClueCon" # Your Inbound EventSocket password
 config.punchblock.host = "freeswitch.local-dev.mojolingo.com" # Your IES host
 ```
 
-2. Boot your Adhearsion app and call in. On Asterisk or FreeSWITCH, dial `1` from a registered endpoint on the host system. On PRISM dial `usera@prism.local-dev.mojolingo.com` from a soft-phone on the host system.
+### Test
+Boot your Adhearsion app and call in. On Asterisk or FreeSWITCH, dial `1` from a registered endpoint on the host system. On PRISM dial `usera@prism.local-dev.mojolingo.com` from a soft-phone on the host system.
