@@ -79,6 +79,16 @@ PATH
   specs:
     mojolingo-misc (0.0.0)
 
+PATH
+  remote: sipp
+  specs:
+    sipp (0.0.0)
+
+PATH
+  remote: wav2rtp
+  specs:
+    wav2rtp (0.0.0)
+
 DEPENDENCIES
   apt (>= 0)
   asterisk (>= 0)
@@ -92,5 +102,7 @@ DEPENDENCIES
   rayo (>= 0)
   rbenv (>= 0)
   ruby_build (>= 0)
+  sipp (>= 0)
+  wav2rtp (>= 0)
   yum (>= 0)
 
