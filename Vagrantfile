@@ -236,7 +236,27 @@ Vagrant.configure("2") do |config|
       chef.add_recipe "apt"
       chef.add_recipe "sipp"
       chef.add_recipe "wav2rtp"
+      chef.add_recipe "ruby_build"
+      chef.add_recipe "rbenv::user"
+
       chef.log_level = :debug
+
+      chef.json = {
+        'rbenv' => {
+          'user_installs' => [
+            { 'user'    => 'vagrant',
+              'rubies'  => ['1.9.3-p448'],
+              'global'  => '1.9.3-p448',
+              'gems'    => {
+                '1.9.3-p448' => [
+                  { 'name' => 'sippy_cup' }
+                ]
+              }
+            }
+          ]
+        }
+      }
+
     end
   end
 end
