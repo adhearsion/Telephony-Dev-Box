@@ -13,7 +13,7 @@ This project ships with configuration for each of the three supported telephony 
   * `vagrant up freeswitch`
   * `vagrant up prism`
   * `vagrant up lumenvox`
-  * `vagrant up laodtest`
+  * `vagrant up loadtest`
 
 One thing to note is that the "adhearsion" VM is especially optional.  Most of the Mojo Lingo developers simply run Adhearsion locally. We provided a VM for those users who had a difficult time getting a Ruby build running on their system. If you already have a functional Ruby environment (with RubyGems) then feel free to just `gem install adhearsion` and keep going.
 
