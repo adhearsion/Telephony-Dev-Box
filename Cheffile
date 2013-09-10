@@ -9,7 +9,7 @@ cookbook 'wav2rtp', path: 'wav2rtp'
 
 cookbook 'apt'
 cookbook 'asterisk', git: 'git://github.com/mojolingo/asterisk-cookbook.git'
-cookbook 'freeswitch', git: 'https://github.com/mojolingo/freeswitch-cookbook.git'
+cookbook 'freeswitch', git: 'https://github.com/mojolingo/freeswitch-cookbook.git', ref: 'feature/rayo'
 cookbook 'java'
 cookbook 'jmxsh', git: 'https://bitbucket.org/voxeolabs/jmxsh-chef'
 cookbook 'prism', git: 'https://bitbucket.org/voxeolabs/prism-chef.git'
