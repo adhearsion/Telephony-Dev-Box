@@ -22,9 +22,6 @@ Vagrant.configure("2") do |config|
       chef.log_level = :debug
 
       chef.json = {
-        ruby_build: {
-          git_ref: 'v20130806',
-        },
         'rbenv' => {
           'user_installs' => [
             { 'user'    => 'vagrant',
@@ -245,9 +242,6 @@ Vagrant.configure("2") do |config|
       chef.log_level = :debug
 
       chef.json = {
-        ruby_build: {
-          git_ref: 'v20130806',
-        },
         'rbenv' => {
           'user_installs' => [
             { 'user'    => 'vagrant',
