@@ -16,6 +16,7 @@ Vagrant.configure("2") do |config|
       chef.data_bags_path = "data_bags"
       chef.add_recipe "apt"
       chef.add_recipe "java"
+      chef.add_recipe "mojolingo-misc::pcre"
       chef.add_recipe "ruby_build"
       chef.add_recipe "rbenv::user"
 
