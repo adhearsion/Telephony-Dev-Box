@@ -62,14 +62,6 @@ This project ships with configuration for each of the three supported telephony 
 <a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
 
 <h3>
-<a name="asterisk-only-register-your-softphone" class="anchor" href="#asterisk-only-register-your-softphone"><span class="octicon octicon-link"></span></a>(Asterisk only): Register your softphone</h3>
-
-<p>The TDB VMs contain preconfigured "usera" and "userb" accounts for softphones. Use the following credentials to register:</p>
-
-<ul>
-<li>Username: <a href="mailto:usera@asterisk.local-dev.mojolingo.com">usera@asterisk.local-dev.mojolingo.com</a> / Password: usera</li>
-<li>Username: <a href="mailto:userb@asterisk.local-dev.mojolingo.com">userb@asterisk.local-dev.mojolingo.com</a> / Password: userb</li>
-</ul><h3>
 <a name="create-an-adhearsion-app" class="anchor" href="#create-an-adhearsion-app"><span class="octicon octicon-link"></span></a>Create an Adhearsion app</h3>
 
 <p>Configure it to connect to the platform of your choice using one of the following samples:</p>
@@ -93,7 +85,17 @@ This project ships with configuration for each of the three supported telephony 
 <h3>
 <a name="test" class="anchor" href="#test"><span class="octicon octicon-link"></span></a>Test</h3>
 
-<p>Boot your Adhearsion app and call in. On Asterisk, dial <code>1</code> from a registered endpoint on the host system. On FreeSWITCH dial <code>usera@freeswitch.local-dev.mojolingo.com</code>, or on PRISM dial <code>usera@prism.local-dev.mojolingo.com</code> from a soft-phone on the host system.</p>
+<p>Boot your Adhearsion app and call in. You can dial <code>usera@[asterisk/freeswitch/prism].local-dev.mojolingo.com</code>, or any number from a registered endpoint.</p>
+
+<h3>
+<a name="register-your-softphone-optional" class="anchor" href="#register-your-softphone-optional"><span class="octicon octicon-link"></span></a>Register your softphone (optional)</h3>
+
+<p>The Asterisk and FreeSWITCH VMs contain preconfigured "usera" and "userb" accounts for softphones. Use the following credentials to register:</p>
+
+<ul>
+<li>Username: usera@[asterisk/freeswitch].local-dev.mojolingo.com / Password: usera</li>
+<li>Username: userb@[asterisk/freeswitch].local-dev.mojolingo.com / Password: userb</li>
+</ul>
         </section>
 
         <footer>
