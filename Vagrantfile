@@ -68,6 +68,7 @@ Vagrant.configure("2") do |config|
 
       chef.json = {
         asterisk: {
+          sip_conf_context: 'adhearsion',
           manager_ip_address: public_ip,
           manager_permit: '0.0.0.0/0.0.0.0',
           manager_read_perms: %w{all},

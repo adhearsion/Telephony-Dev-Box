@@ -19,12 +19,6 @@ One thing to note is that the "adhearsion" VM is especially optional.  Most of t
 
 ## Usage
 
-### (Asterisk only): Register your softphone
-The TDB VMs contain preconfigured "usera" and "userb" accounts for softphones. Use the following credentials to register:
-
-* Username: usera@asterisk.local-dev.mojolingo.com / Password: usera
-* Username: userb@asterisk.local-dev.mojolingo.com / Password: userb
-
 ### Create an Adhearsion app
 
 Configure it to connect to the platform of your choice using one of the following samples:
@@ -48,4 +42,10 @@ config.punchblock.host = "asterisk.local-dev.mojolingo.com" # Your AMI host
 ```
 
 ### Test
-Boot your Adhearsion app and call in. On Asterisk, dial `1` from a registered endpoint on the host system. On FreeSWITCH dial `usera@freeswitch.local-dev.mojolingo.com`, or on PRISM dial `usera@prism.local-dev.mojolingo.com` from a soft-phone on the host system.
+Boot your Adhearsion app and call in. You can dial `usera@[asterisk/freeswitch/prism].local-dev.mojolingo.com`, or any number from a registered endpoint.
+
+### Register your softphone (optional)
+The Asterisk and FreeSWITCH VMs contain preconfigured "usera" and "userb" accounts for softphones. Use the following credentials to register:
+
+* Username: usera@[asterisk/freeswitch].local-dev.mojolingo.com / Password: usera
+* Username: userb@[asterisk/freeswitch].local-dev.mojolingo.com / Password: userb
