@@ -239,6 +239,7 @@ Vagrant.configure("2") do |config|
       chef.add_recipe "wav2rtp"
       chef.add_recipe "ruby_build"
       chef.add_recipe "rbenv::user"
+      chef.add_recipe "sudo"
 
       chef.log_level = :debug
 
@@ -255,7 +256,13 @@ Vagrant.configure("2") do |config|
               }
             }
           ]
-        }
+        },
+        "authorization" => {
+          "sudo" => {
+            "users" => ["vagrant"],
+            "passwordless" => "true"
+          }
+        },
       }
     end
   end
