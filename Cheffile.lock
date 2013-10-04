@@ -8,7 +8,7 @@ SITE
     sudo (2.2.0)
     windows (1.8.10)
       chef_handler (>= 0.0.0)
-    yum (2.1.0)
+    yum (2.3.2)
 
 GIT
   remote: git://github.com/mojolingo/asterisk-cookbook.git
@@ -70,7 +70,7 @@ GIT
 GIT
   remote: https://github.com/mojolingo/lumenvox-chef.git
   ref: master
-  sha: f9c7568a06345965d347c0c37f6b41a6635fcd1f
+  sha: 1e65eb9083752e7b6a13d821c519e46edef3a71d
   specs:
     lumenvox (0.0.2)
       yum (>= 0.0.0)

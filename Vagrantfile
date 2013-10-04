@@ -187,34 +187,45 @@ Vagrant.configure("2") do |config|
     lumenvox.vm.provision :chef_solo do |chef|
       chef.cookbooks_path = "cookbooks"
       chef.data_bags_path = "data_bags"
-      chef.add_recipe "lumenvox"
+      chef.add_recipe "lumenvox::core"
+      chef.add_recipe "lumenvox::client"
+      chef.add_recipe "lumenvox::sre"
+      chef.add_recipe "lumenvox::media_server"
+      chef.add_recipe "lumenvox::tts"
       chef.add_recipe "mojolingo-misc::no_iptables"
 
       chef.log_level = :debug
 
       chef.json = {
         'lumenvox' => {
+          'core' => {
+            'version' => '11.3.100-2.el6'
+          },
           'tts' => {
+            'version' => '11.3.100-1SF.el6',
             'voices' => [
                 {"voice" => "Chloe",
-                 "version" => "10.5.110-1"
+                 "version" => "11.3.100-1"
                 }
             ]
           },
           'sre' => {
+            'version' => '11.3.100-2.el6',
             'language_packs' => [{
               "language" => "BritishEnglish",
-              "version" => "10.5.110-1"
+              "version" => "11.3.100-1"
             }]
           },
           'media_server' => {
+            'version' => '11.3.100-2.el6',
             'mrcp_server_ip' => ip
           },
           'client' => {
+            'version' => '11.3.100-2.el6',
             'license_servers' => ["208.52.151.220"],
             'authentication_username' => ENV['LUMENVOX_USERNAME'],
             'authentication_password' => ENV['LUMENVOX_PASSWORD'],
-            'default_tts_voice' => "Chloe",
+            'default_tts_voice' => "default",
             'default_tts_language' => "en-GB"
           }
         }
