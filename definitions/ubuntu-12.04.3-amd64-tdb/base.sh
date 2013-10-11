@@ -8,7 +8,7 @@ apt-get -y install zlib1g-dev libssl-dev libreadline-gplv2-dev libyaml-dev
 apt-get -y install vim curl
 apt-get clean
 
-# Set up sudo
+# Give the 'vagrant' user passwordless sudo access
 ( cat <<'EOP'
 %vagrant ALL=NOPASSWD:ALL
 EOP
