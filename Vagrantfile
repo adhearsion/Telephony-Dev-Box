@@ -1,6 +1,6 @@
 Vagrant.configure("2") do |config|
-  config.vm.box = 'precise64'
-  config.vm.box_url = 'http://files.vagrantup.com/precise64.box'
+  config.vm.box = 'tdb-ubuntu1204-v9'
+  config.vm.box_url = 'http://ci.mojolingo.com/job/Telephony-Dev-Box-Base-Boxen/9/artifact/tdb-ubuntu1204.box'
   config.librarian_chef.cheffile_dir = "."
 
   config.vm.define :adhearsion do |adhearsion|
@@ -174,8 +174,8 @@ Vagrant.configure("2") do |config|
     domain = "lumenvox.local-dev.mojolingo.com"
     ip     = "10.203.175.14"
 
-    lumenvox.vm.box = 'centos63_64min'
-    lumenvox.vm.box_url = 'https://dl.dropbox.com/u/7225008/Vagrant/CentOS-6.3-x86_64-minimal.box'
+    lumenvox.vm.box = 'tdb-centos64-v9'
+    lumenvox.vm.box_url = 'http://ci.mojolingo.com/job/Telephony-Dev-Box-Base-Boxen/9/artifact/tdb-centos64.box'
     lumenvox.vm.network :private_network, ip: ip
     lumenvox.vm.hostname = domain
 

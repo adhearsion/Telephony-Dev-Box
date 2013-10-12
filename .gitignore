@@ -2,6 +2,9 @@ mojolingo_dev.box
 .DS_Store
 .vagrant
 .rvmrc
+*.log
 vagrant/
 tmp
 cookbooks
+iso
+*.box

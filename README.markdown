@@ -1,12 +1,12 @@
 # Telephony Dev Box
 
-# Installation
+## Installation
 
 1. Install [virtualbox](https://www.virtualbox.org/wiki/Downloads)
 2. Install [vagrant](http://vagrantup.com)
 3. Clone this repository (`git clone https://github.com/mojolingo/Telephony-Dev-Box.git`) if you have git installed, or download [an archive](https://github.com/mojolingo/Telephony-Dev-Box/zipball/master).
 4. Add the [librarian-chef plugin](https://github.com/jimmycuadra/vagrant-librarian-chef) to your Vagrant installation by doing `vagrant plugin install vagrant-librarian-chef`.
-4. Build the VMs:
+5. Build the VMs:
 This project ships with configuration for each of the three supported telephony engines: Asterisk, FreeSWITCH and PRISM, along with a box with Lumenvox TTS & ASR deployed and a load test box (containing [SIPp](http://sipp.sourceforge.net) + [Sippy Cup](https://github.com/bklang/sippy_cup)). If you simply type `vagrant up` then one VM will be created for each engine, as well as a VM containing a working Adhearsion environment. However, this will create five virtual machines! You can easily bring up just the instance(s) you want by typing any combination of the below commands:
   * `vagrant up adhearsion`
   * `vagrant up asterisk`
@@ -49,3 +49,7 @@ The Asterisk and FreeSWITCH VMs contain preconfigured "usera" and "userb" accoun
 
 * Username: usera@[asterisk/freeswitch].local-dev.mojolingo.com / Password: usera
 * Username: userb@[asterisk/freeswitch].local-dev.mojolingo.com / Password: userb
+
+## Base Boxes
+
+This project includes base box templates for use on Mojo Lingo projects. These base boxes are published at http://ci.mojolingo.com/job/Telephony-Dev-Box-Base-Boxen, and include Chef 11. Ubuntu 12.04 and CentOS 6.4 boxes are available, both 64bit. The main difference between these and other publicly available base boxes is the visibility into their build mechanism and that they *never* change after they are published - new builds always have a new build number in their URL; this way you can be sure of base box stability.
