@@ -42,9 +42,9 @@ GIT
 GIT
   remote: https://github.com/edelight/chef-solo-search.git
   ref: master
-  sha: d84105ac63200425384f98a7999bd9c937bb2ae1
+  sha: 681f78a108f5f8a3655551b32d9939603628c568
   specs:
-    chef-solo-search (0.4.0)
+    chef-solo-search (0.5.1)
 
 GIT
   remote: https://github.com/fnichol/chef-rbenv.git
