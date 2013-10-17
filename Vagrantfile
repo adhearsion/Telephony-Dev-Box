@@ -14,34 +14,11 @@ Vagrant.configure("2") do |config|
     adhearsion.vm.provision :chef_solo do |chef|
       chef.cookbooks_path = "cookbooks"
       chef.data_bags_path = "data_bags"
-      chef.add_recipe "apt"
-      chef.add_recipe "java"
-      chef.add_recipe "mojolingo-misc::pcre"
-      chef.add_recipe "ruby_build"
-      chef.add_recipe "rbenv::user"
+      chef.roles_path     = "roles"
+
+      chef.add_role "adhearsion"
 
       chef.log_level = :debug
-
-      chef.json = {
-        'rbenv' => {
-          'user_installs' => [
-            { 'user'    => 'vagrant',
-              'rubies'  => ['2.0.0-p247', 'jruby-1.7.4'],
-              'global'  => '2.0.0-p247',
-              'gems'    => {
-                '2.0.0-p247' => [
-                  { 'name' => 'bundler' },
-                  { 'name' => 'adhearsion' }
-                ],
-                'jruby-1.7.4' => [
-                  { 'name' => 'bundler' },
-                  { 'name' => 'adhearsion' }
-                ]
-              }
-            }
-          ]
-        }
-      }
     end
   end
 
@@ -58,22 +35,15 @@ Vagrant.configure("2") do |config|
     asterisk.vm.provision :chef_solo do |chef|
       chef.cookbooks_path = "cookbooks"
       chef.data_bags_path = "data_bags"
-      chef.add_recipe "apt"
-      chef.add_recipe "chef-solo-search"
-      chef.add_recipe "asterisk"
-      chef.add_recipe "asterisk::package"
-      chef.add_recipe "asterisk::config"
-      chef.add_recipe "asterisk::unimrcp"
+      chef.roles_path     = "roles"
+
+      chef.add_role "asterisk"
 
       chef.log_level = :debug
 
       chef.json = {
         asterisk: {
-          sip_conf_context: 'adhearsion',
           manager_ip_address: public_ip,
-          manager_permit: '0.0.0.0/0.0.0.0',
-          manager_read_perms: %w{all},
-          manager_write_perms: %w{all},
           unimrcp: {
             server_ip: "10.203.175.14",
             client_ip: public_ip,
@@ -150,22 +120,15 @@ Vagrant.configure("2") do |config|
     freeswitch.vm.provision :chef_solo do |chef|
       chef.cookbooks_path = "cookbooks"
       chef.data_bags_path = "data_bags"
-      chef.add_recipe "apt"
-      chef.add_recipe "freeswitch"
+      chef.roles_path     = "roles"
+
+      chef.add_role "freeswitch"
 
       chef.log_level = :debug
 
       chef.json = {
         freeswitch: {
-          tls_only: false,
           local_ip: public_ip,
-          dialplan: {
-            head_fragments: '<extension name="adhearsion">
-  <condition>
-    <action application="rayo"/>
-  </condition>
-</extension>'
-          }
         }
       }
     end
@@ -188,46 +151,20 @@ Vagrant.configure("2") do |config|
     lumenvox.vm.provision :chef_solo do |chef|
       chef.cookbooks_path = "cookbooks"
       chef.data_bags_path = "data_bags"
-      chef.add_recipe "lumenvox::core"
-      chef.add_recipe "lumenvox::client"
-      chef.add_recipe "lumenvox::sre"
-      chef.add_recipe "lumenvox::media_server"
-      chef.add_recipe "lumenvox::tts"
-      chef.add_recipe "mojolingo-misc::no_iptables"
+      chef.roles_path     = "roles"
+
+      chef.add_role "lumenvox"
 
       chef.log_level = :debug
 
       chef.json = {
         'lumenvox' => {
-          'core' => {
-            'version' => '11.3.100-2.el6'
-          },
-          'tts' => {
-            'version' => '11.3.100-1SF.el6',
-            'voices' => [
-                {"voice" => "Chloe",
-                 "version" => "11.3.100-1"
-                }
-            ]
-          },
-          'sre' => {
-            'version' => '11.3.100-2.el6',
-            'language_packs' => [{
-              "language" => "BritishEnglish",
-              "version" => "11.3.100-1"
-            }]
-          },
           'media_server' => {
-            'version' => '11.3.100-2.el6',
             'mrcp_server_ip' => ip
           },
           'client' => {
-            'version' => '11.3.100-2.el6',
-            'license_servers' => ["208.52.151.220"],
             'authentication_username' => ENV['LUMENVOX_USERNAME'],
             'authentication_password' => ENV['LUMENVOX_PASSWORD'],
-            'default_tts_voice' => "default",
-            'default_tts_language' => "en-GB"
           }
         }
       }
@@ -246,36 +183,11 @@ Vagrant.configure("2") do |config|
     loadtest.vm.provision :chef_solo do |chef|
       chef.cookbooks_path = "cookbooks"
       chef.data_bags_path = "data_bags"
-      chef.add_recipe "apt"
-      chef.add_recipe "sipp"
-      chef.add_recipe "wav2rtp"
-      chef.add_recipe "ruby_build"
-      chef.add_recipe "rbenv::user"
-      chef.add_recipe "sudo"
+      chef.roles_path     = "roles"
+
+      chef.add_role "loadtest"
 
       chef.log_level = :debug
-
-      chef.json = {
-        'rbenv' => {
-          'user_installs' => [
-            { 'user'    => 'vagrant',
-              'rubies'  => ['1.9.3-p448'],
-              'global'  => '1.9.3-p448',
-              'gems'    => {
-                '1.9.3-p448' => [
-                  { 'name' => 'sippy_cup' }
-                ]
-              }
-            }
-          ]
-        },
-        "authorization" => {
-          "sudo" => {
-            "users" => ["vagrant"],
-            "passwordless" => "true"
-          }
-        },
-      }
     end
   end
 end
