@@ -172,7 +172,6 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define :loadtest do |loadtest|
-    loadtest.vm.box = 'precise64'
     loadtest.vm.network :private_network, ip: '10.203.175.15'
     loadtest.vm.hostname = 'loadtest.local-dev.mojolingo.com'
 
