@@ -3,7 +3,7 @@
 site :opscode
 
 cookbook 'mojolingo-misc', path: 'mojolingo-misc'
-cookbook 'sipp'
+cookbook 'sipp', '1.0.1'
 cookbook 'wav2rtp', path: 'wav2rtp'
 
 cookbook 'apt'
