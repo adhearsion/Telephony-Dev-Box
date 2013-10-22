@@ -14,5 +14,5 @@ script "compile wav2rtp" do
   ./configure && make
   make install
 EOF
-  not_if { `wav2rtp -v`.chomp == "0.9.3" }
+  not_if { `test -f wav2rtp && wav2rtp -v`.chomp == "0.9.3" }
 end
