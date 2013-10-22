@@ -1,7 +1,7 @@
 Vagrant.configure("2") do |config|
   config.vm.box = 'tdb-ubuntu1204-v9'
   config.vm.box_url = 'http://ci.mojolingo.com/job/Telephony-Dev-Box-Base-Boxen/9/artifact/tdb-ubuntu1204.box'
-  config.librarian_chef.cheffile_dir = "."
+  config.berkshelf.enabled = true
 
   config.vm.define :adhearsion do |adhearsion|
     adhearsion.vm.network :private_network, ip: "10.203.175.10"

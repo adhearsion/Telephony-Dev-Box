@@ -1,10 +1,24 @@
-mojolingo_dev.box
 .DS_Store
 .vagrant
 .rvmrc
 *.log
 vagrant/
 tmp
-cookbooks
 iso
 *.box
+Berksfile.lock
+*~
+*#
+.#*
+\#*#
+.*.sw[a-z]
+*.un~
+/cookbooks
+
+# Bundler
+Gemfile.lock
+bin/*
+.bundle/*
+
+.kitchen/
+.kitchen.local.yml
