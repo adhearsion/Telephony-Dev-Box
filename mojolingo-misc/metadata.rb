@@ -7,3 +7,6 @@ recipe            "mojolingo-misc::no_iptables", "Kill iptables"
 %w{ ubuntu centos }.each do |os|
   supports os
 end
+
+depends 'rbenv'
+depends 'sipp', '~> 1.0'
