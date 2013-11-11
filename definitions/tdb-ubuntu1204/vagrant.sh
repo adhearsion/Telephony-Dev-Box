@@ -1,7 +1,7 @@
 date > /etc/vagrant_box_build_time
 
 # Setup sudo to allow no-password sudo for "sudo"
-usermod -a -G sudo vagrant
+usermod -a -G admin vagrant
 
 # Installing vagrant keys
 mkdir /home/vagrant/.ssh
