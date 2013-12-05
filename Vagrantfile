@@ -116,6 +116,7 @@ Vagrant.configure("2") do |config|
 
     freeswitch.vm.provider :virtualbox do |vb|
       vb.name = "TDB-freeswitch"
+      vb.customize ["modifyvm", :id, "--memory", 1024]
     end
 
     freeswitch.vm.provision :chef_solo do |chef|
