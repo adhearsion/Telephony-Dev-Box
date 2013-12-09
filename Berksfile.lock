@@ -18,9 +18,7 @@
       "ref": "25da156cb9d52eb783dbd16bfdb6ac09a6aff4cd"
     },
     "freeswitch": {
-      "locked_version": "0.1.0",
-      "git": "https://github.com/mojolingo/freeswitch-cookbook.git",
-      "ref": "da6e918da7719fad025b150ab1e65071735b80ec"
+      "locked_version": "0.2.0"
     },
     "java": {
       "locked_version": "1.6.0"

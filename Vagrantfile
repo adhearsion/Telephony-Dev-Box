@@ -110,9 +110,10 @@ Vagrant.configure("2") do |config|
 
   config.vm.define :freeswitch do |freeswitch|
     public_ip = "10.203.175.13"
+    domain = "freeswitch.local-dev.mojolingo.com"
 
     freeswitch.vm.network :private_network, ip: public_ip
-    freeswitch.vm.hostname = "freeswitch.local-dev.mojolingo.com"
+    freeswitch.vm.hostname = domain
 
     freeswitch.vm.provider :virtualbox do |vb|
       vb.name = "TDB-freeswitch"
@@ -131,6 +132,7 @@ Vagrant.configure("2") do |config|
       chef.json = {
         freeswitch: {
           local_ip: public_ip,
+          domain: domain
         }
       }
     end
