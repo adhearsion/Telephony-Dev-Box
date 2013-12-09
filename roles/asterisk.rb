@@ -1,4 +1,4 @@
-name 'adhearsion'
+name 'asterisk'
 description 'Installs Asterisk to run Adhearsion apps'
 run_list "recipe[apt]",
   "recipe[chef-solo-search]",

@@ -1,4 +1,4 @@
-name 'adhearsion'
+name 'loadtest'
 description 'Installs load testing tools'
 run_list "recipe[apt]",
   "recipe[sudo]",
