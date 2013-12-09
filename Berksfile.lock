@@ -3,14 +3,11 @@
     "mojolingo-misc": {
       "path": "./mojolingo-misc"
     },
-    "sipp": {
-      "locked_version": "1.0.1"
-    },
     "wav2rtp": {
       "path": "./wav2rtp"
     },
     "apt": {
-      "locked_version": "2.2.0"
+      "locked_version": "2.3.0"
     },
     "asterisk": {
       "locked_version": "0.5.0",
@@ -38,27 +35,24 @@
       "git": "https://bitbucket.org/voxeolabs/rayo-chef.git",
       "ref": "faefaff392f0e7ece7b8ab8b8d3172ed0d14172a"
     },
-    "rbenv": {
-      "locked_version": "1.4.1"
-    },
     "chef-solo-search": {
       "locked_version": "0.5.1",
-      "git": "https://github.com/edelight/chef-solo-search.git",
+      "git": "git://github.com/edelight/chef-solo-search.git",
       "ref": "681f78a108f5f8a3655551b32d9939603628c568"
     },
     "lumenvox": {
       "locked_version": "0.0.2",
-      "git": "https://github.com/mojolingo/lumenvox-chef.git",
+      "git": "git://github.com/mojolingo/lumenvox-chef.git",
       "ref": "1e65eb9083752e7b6a13d821c519e46edef3a71d"
     },
     "yum": {
-      "locked_version": "2.1.0"
+      "locked_version": "2.4.4"
     },
     "sudo": {
-      "locked_version": "2.0.4"
+      "locked_version": "2.2.2"
     },
-    "base": {
-      "locked_version": "0.1.0"
+    "rbenv": {
+      "locked_version": "1.6.5"
     },
     "git": {
       "locked_version": "2.7.0"
@@ -80,6 +74,12 @@
     },
     "ohai": {
       "locked_version": "1.1.12"
+    },
+    "sipp": {
+      "locked_version": "1.0.1"
+    },
+    "base": {
+      "locked_version": "0.1.0"
     }
   }
 }
