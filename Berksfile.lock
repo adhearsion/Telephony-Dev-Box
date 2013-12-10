@@ -10,9 +10,7 @@
       "locked_version": "2.3.0"
     },
     "asterisk": {
-      "locked_version": "0.5.0",
-      "git": "git://github.com/mojolingo/asterisk-cookbook.git",
-      "ref": "25da156cb9d52eb783dbd16bfdb6ac09a6aff4cd"
+      "locked_version": "0.2.2"
     },
     "freeswitch": {
       "locked_version": "0.2.0"
@@ -34,11 +32,6 @@
       "locked_version": "1.1.0",
       "git": "https://bitbucket.org/voxeolabs/rayo-chef.git",
       "ref": "faefaff392f0e7ece7b8ab8b8d3172ed0d14172a"
-    },
-    "chef-solo-search": {
-      "locked_version": "0.5.1",
-      "git": "git://github.com/edelight/chef-solo-search.git",
-      "ref": "681f78a108f5f8a3655551b32d9939603628c568"
     },
     "lumenvox": {
       "locked_version": "0.0.2",

@@ -8,8 +8,7 @@ cookbook 'apt'
 cookbook 'yum'
 
 # Asterisk
-cookbook 'asterisk', github: 'mojolingo/asterisk-cookbook', ref: '25da156cb9d52eb783dbd16bfdb6ac09a6aff4cd'
-cookbook 'chef-solo-search', github: 'edelight/chef-solo-search'
+cookbook 'asterisk', '~> 0.2.2'
 
 # FreeSWITCH
 cookbook 'freeswitch', '~> 0.2'

@@ -43,12 +43,13 @@ Vagrant.configure("2") do |config|
 
       chef.json = {
         asterisk: {
-          manager_ip_address: public_ip,
+          manager: {
+            ip_address: public_ip
+          },
           unimrcp: {
-            version: "1.1.0",
             server_ip: "10.203.175.14",
             client_ip: public_ip,
-            rtp_ip: public_ip,
+            rtp_ip: public_ip
           }
         }
       }
