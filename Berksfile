@@ -25,4 +25,4 @@ cookbook 'lumenvox', github: 'mojolingo/lumenvox-chef'
 # Load test
 cookbook 'sipp'
 cookbook 'sudo'
-cookbook 'wav2rtp', path: 'wav2rtp'
+cookbook 'wav2rtp', '~> 1.0'

@@ -45,7 +45,7 @@
       "locked_version": "2.2.2"
     },
     "wav2rtp": {
-      "path": "./wav2rtp"
+      "locked_version": "1.0.0"
     },
     "rbenv": {
       "locked_version": "1.6.5"
