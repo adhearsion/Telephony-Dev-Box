@@ -8,7 +8,7 @@ cookbook 'apt'
 cookbook 'yum'
 
 # Asterisk
-cookbook 'asterisk', '~> 0.2.2'
+cookbook 'asterisk', '~> 0.2.3'
 
 # FreeSWITCH
 cookbook 'freeswitch', '~> 0.2'
