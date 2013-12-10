@@ -3,11 +3,11 @@
     "mojolingo-misc": {
       "path": "./mojolingo-misc"
     },
-    "wav2rtp": {
-      "path": "./wav2rtp"
-    },
     "apt": {
       "locked_version": "2.3.0"
+    },
+    "yum": {
+      "locked_version": "2.4.4"
     },
     "asterisk": {
       "locked_version": "0.2.2"
@@ -38,11 +38,14 @@
       "git": "git://github.com/mojolingo/lumenvox-chef.git",
       "ref": "1e65eb9083752e7b6a13d821c519e46edef3a71d"
     },
-    "yum": {
-      "locked_version": "2.4.4"
+    "sipp": {
+      "locked_version": "1.0.1"
     },
     "sudo": {
       "locked_version": "2.2.2"
+    },
+    "wav2rtp": {
+      "path": "./wav2rtp"
     },
     "rbenv": {
       "locked_version": "1.6.5"
@@ -67,9 +70,6 @@
     },
     "ohai": {
       "locked_version": "1.1.12"
-    },
-    "sipp": {
-      "locked_version": "1.0.1"
     },
     "base": {
       "locked_version": "0.1.0"
