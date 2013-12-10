@@ -8,6 +8,7 @@ override_attributes asterisk: {
     context: 'adhearsion'
   },
   manager: {
+    ip_address: '0.0.0.0',
     permit: '0.0.0.0/0.0.0.0',
     read_perms: %w{all},
     write_perms: %w{all}
