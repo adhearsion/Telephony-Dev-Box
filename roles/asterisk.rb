@@ -6,6 +6,10 @@ run_list "recipe[asterisk]",
   "recipe[asterisk::unimrcp]"
 
 override_attributes asterisk: {
+  source: {
+    version: '13.6.0',
+    checksum: '8a01b53c946d092ac561c11b404f68cd328306d0e3b434a7485a11d4b175005a',
+  },
   sip: {
     context: 'adhearsion'
   },

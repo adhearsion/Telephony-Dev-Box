@@ -7,7 +7,7 @@ cookbook 'mojolingo-misc', path: 'mojolingo-misc'
 cookbook 'apt'
 
 # Asterisk
-cookbook 'asterisk', '~> 0.2.7'
+cookbook 'asterisk', '~> 1.1.1'
 cookbook 'unimrcp'
 
 # FreeSWITCH
