@@ -45,10 +45,14 @@ config.punchblock.host = "asterisk.local-dev.mojolingo.com" # Your AMI host
 Boot your Adhearsion app and call in. You can dial `usera@[asterisk/freeswitch/prism].local-dev.mojolingo.com`, or any number from a registered endpoint.
 
 ### Register your softphone (optional)
-The Asterisk and FreeSWITCH VMs contain preconfigured "usera" and "userb" accounts for softphones. Use the following credentials to register:
+The Asterisk and FreeSWITCH VMs contain preconfigured "usera" and "userb" accounts for softphones. Use usera and/or userb for either of the following credential sets to register:
 
-* Username: usera@[asterisk/freeswitch].local-dev.mojolingo.com / Password: usera
-* Username: userb@[asterisk/freeswitch].local-dev.mojolingo.com / Password: userb
+### Default Asterisk Credentials ###
+* Username: usera@asterisk.local-dev.mojolingo.com / Password: usera
+* Username: userb@asterisk.local-dev.mojolingo.com / Password: userb
+### Default FreeSwitch Credentials ###
+* Username: usera@freeswitch.local-dev.mojolingo.com / Password: 1
+* Username: userb@freeswitch.local-dev.mojolingo.com / Password: 1
 
 ## Base Boxes
 
