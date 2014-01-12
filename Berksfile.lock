@@ -10,7 +10,10 @@
       "locked_version": "2.4.4"
     },
     "asterisk": {
-      "locked_version": "0.2.6"
+      "locked_version": "0.2.7"
+    },
+    "unimrcp": {
+      "locked_version": "0.1.0"
     },
     "freeswitch": {
       "locked_version": "0.2.0"

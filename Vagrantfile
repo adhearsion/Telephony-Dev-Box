@@ -41,15 +41,7 @@ Vagrant.configure("2") do |config|
 
       chef.log_level = :debug
 
-      chef.json = {
-        asterisk: {
-          unimrcp: {
-            server_ip: "10.203.175.14",
-            client_ip: public_ip,
-            rtp_ip: public_ip
-          }
-        }
-      }
+      chef.json = {}
     end
   end
 
