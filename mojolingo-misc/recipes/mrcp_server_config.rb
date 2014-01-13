@@ -13,4 +13,6 @@ bash "install_unimrcp_server_init_script" do
   subscribes :run, "bash[install_unimrcp]", :immediately
 end
 
-service 'unimrcp-server'
+service 'unimrcp-server' do
+  action [:enable, :start]
+end
