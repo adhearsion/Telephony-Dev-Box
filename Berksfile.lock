@@ -16,7 +16,7 @@
       "locked_version": "0.1.0"
     },
     "freeswitch": {
-      "locked_version": "0.2.0"
+      "locked_version": "0.3.2"
     },
     "java": {
       "locked_version": "1.6.0"
