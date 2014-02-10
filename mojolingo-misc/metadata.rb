@@ -11,3 +11,4 @@ end
 depends 'rbenv'
 depends 'sipp', '~> 1.0'
 depends 'wav2rtp', '~> 1.0'
+depends 'java', '~> 1.6'
