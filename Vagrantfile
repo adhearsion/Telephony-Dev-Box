@@ -4,6 +4,9 @@ Vagrant.configure("2") do |config|
   config.berkshelf.enabled = true
 
   config.vm.define :adhearsion do |adhearsion|
+    adhearsion.vm.box = 'tdb-adhearsion'
+    adhearsion.vm.box_url = 'build/tdb-adhearsion.box'
+
     adhearsion.vm.network :private_network, ip: "10.203.175.10"
     adhearsion.vm.hostname = "adhearsion.local-dev.mojolingo.com"
 
