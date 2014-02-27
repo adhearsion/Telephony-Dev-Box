@@ -20,8 +20,6 @@ Vagrant.configure("2") do |config|
       chef.roles_path     = "roles"
 
       chef.add_role "adhearsion"
-
-      chef.log_level = :debug
     end
   end
 
@@ -41,8 +39,6 @@ Vagrant.configure("2") do |config|
       chef.roles_path     = "roles"
 
       chef.add_role "asterisk"
-
-      chef.log_level = :debug
 
       chef.json = {}
     end
@@ -71,8 +67,6 @@ Vagrant.configure("2") do |config|
       chef.add_recipe "prism"
       chef.add_recipe "rayo"
       chef.add_recipe "mojolingo-misc::no_iptables"
-
-      chef.log_level = :debug
 
       chef.json = {
         'name' => domain,
@@ -120,8 +114,6 @@ Vagrant.configure("2") do |config|
 
       chef.add_role "freeswitch"
 
-      chef.log_level = :debug
-
       chef.json = {
         freeswitch: {
           local_ip: public_ip,
@@ -152,8 +144,6 @@ Vagrant.configure("2") do |config|
 
       chef.add_role "lumenvox"
 
-      chef.log_level = :debug
-
       chef.json = {
         'lumenvox' => {
           'media_server' => {
@@ -182,8 +172,6 @@ Vagrant.configure("2") do |config|
       chef.roles_path     = "roles"
 
       chef.add_role "loadtest"
-
-      chef.log_level = :debug
     end
   end
 end
