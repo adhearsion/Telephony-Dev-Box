@@ -7,18 +7,16 @@
       "locked_version": "2.3.0"
     },
     "asterisk": {
-      "locked_version": "0.2.7"
+      "locked_version": "0.3.0"
     },
     "unimrcp": {
-      "locked_version": "0.1.0"
+      "locked_version": "0.2.0"
     },
     "freeswitch": {
       "locked_version": "0.3.2"
     },
     "lumenvox": {
-      "locked_version": "0.0.2",
-      "git": "git://github.com/mojolingo/lumenvox-chef.git",
-      "ref": "1e65eb9083752e7b6a13d821c519e46edef3a71d"
+      "locked_version": "0.1.0"
     },
     "sipp": {
       "locked_version": "1.0.1"
