@@ -6,9 +6,6 @@
     "apt": {
       "locked_version": "2.3.0"
     },
-    "yum": {
-      "locked_version": "2.4.4"
-    },
     "asterisk": {
       "locked_version": "0.2.7"
     },
@@ -17,24 +14,6 @@
     },
     "freeswitch": {
       "locked_version": "0.3.2"
-    },
-    "java": {
-      "locked_version": "1.6.0"
-    },
-    "jmxsh": {
-      "locked_version": "1.0.1",
-      "git": "https://bitbucket.org/voxeolabs/jmxsh-chef",
-      "ref": "ee34c9ec589fdf649359db3e5182775ea3fdbe76"
-    },
-    "prism": {
-      "locked_version": "12.0.1",
-      "git": "https://bitbucket.org/voxeolabs/prism-chef.git",
-      "ref": "f1fce1e5ff9a083da5a714da550892e355e035a6"
-    },
-    "rayo": {
-      "locked_version": "1.1.0",
-      "git": "https://bitbucket.org/voxeolabs/rayo-chef.git",
-      "ref": "faefaff392f0e7ece7b8ab8b8d3172ed0d14172a"
     },
     "lumenvox": {
       "locked_version": "0.0.2",
@@ -62,6 +41,9 @@
     "build-essential": {
       "locked_version": "1.4.2"
     },
+    "yum": {
+      "locked_version": "3.1.0"
+    },
     "windows": {
       "locked_version": "1.11.0"
     },
@@ -74,8 +56,14 @@
     "ohai": {
       "locked_version": "1.1.12"
     },
-    "base": {
-      "locked_version": "0.1.0"
+    "java": {
+      "locked_version": "1.6.0"
+    },
+    "yum-repoforge": {
+      "locked_version": "0.2.0"
+    },
+    "yum-epel": {
+      "locked_version": "0.3.2"
     }
   }
 }
