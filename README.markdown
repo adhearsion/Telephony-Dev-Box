@@ -18,27 +18,7 @@ One thing to note is that the "adhearsion" VM is especially optional.  Most of t
 
 ## Usage
 
-### Create an Adhearsion app
-
-Configure it to connect to the platform of your choice using one of the following samples:
-
-```ruby
-##
-# Use with Rayo (eg FreeSWITCH or Voxeo PRISM)
-#
-config.punchblock.username = "usera@freeswitch.local-dev.mojolingo.com" # Your XMPP JID for use with Rayo (swap 'freeswitch' for 'prism' as appropriate)
-config.punchblock.password = "1" # Your XMPP password
-```
-
-```ruby
-##
-# Use with Asterisk
-#
-config.punchblock.platform = :asterisk # Use Asterisk
-config.punchblock.username = "manager" # Your AMI username
-config.punchblock.password = "password" # Your AMI password
-config.punchblock.host = "asterisk.local-dev.mojolingo.com" # Your AMI host
-```
+Generated Adhearsion apps have sample config which targets Telephony Dev Box by default.
 
 ### Test
 Boot your Adhearsion app and call in. You can dial `usera@[asterisk/freeswitch].local-dev.mojolingo.com`, or any number from a registered endpoint.
