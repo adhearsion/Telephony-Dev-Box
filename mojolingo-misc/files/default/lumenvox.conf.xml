@@ -1,0 +1,18 @@
+<include>
+  <profile name="lumenvox" version="2">
+    <param name="client-ip" value="$${local_ip_v4}"/>
+    <param name="client-port" value="25097"/>
+    <param name="server-ip" value="10.203.175.14"/>
+    <param name="server-port" value="5060"/>
+    <param name="sip-transport" value="udp"/>
+    <param name="rtp-ip" value="$${local_ip_v4}"/>
+    <param name="rtp-port-min" value="28000"/>
+    <param name="rtp-port-max" value="29000"/>
+    <param name="codecs" value="PCMU PCMA L16/96/8000 telephone-event/101/8000"/>
+    <synthparams>
+    </synthparams>
+    <recogparams>
+      <param name="start-input-timers" value="false"/>
+    </recogparams>
+  </profile>
+</include>
