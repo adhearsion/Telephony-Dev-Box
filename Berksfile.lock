@@ -28,40 +28,40 @@
       "locked_version": "1.0.0"
     },
     "rbenv": {
-      "locked_version": "1.6.5"
+      "locked_version": "1.7.1"
     },
     "git": {
-      "locked_version": "2.7.0"
+      "locked_version": "3.0.0"
     },
     "dmg": {
-      "locked_version": "2.0.8"
+      "locked_version": "2.2.0"
     },
     "build-essential": {
-      "locked_version": "1.4.2"
-    },
-    "yum": {
-      "locked_version": "3.1.0"
+      "locked_version": "1.4.4"
     },
     "windows": {
-      "locked_version": "1.11.0"
+      "locked_version": "1.30.0"
     },
     "chef_handler": {
-      "locked_version": "1.1.4"
+      "locked_version": "1.1.5"
     },
     "runit": {
-      "locked_version": "1.4.0"
+      "locked_version": "1.5.8"
+    },
+    "yum": {
+      "locked_version": "3.1.2"
+    },
+    "yum-epel": {
+      "locked_version": "0.3.4"
     },
     "ohai": {
-      "locked_version": "1.1.12"
+      "locked_version": "2.0.0"
     },
     "java": {
       "locked_version": "1.6.0"
     },
     "yum-repoforge": {
       "locked_version": "0.2.0"
-    },
-    "yum-epel": {
-      "locked_version": "0.3.2"
     }
   }
 }
