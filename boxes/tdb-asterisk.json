@@ -42,7 +42,8 @@
     {
       "type": "vagrant",
       "compression_level": 9,
-      "output": "build/tdb-asterisk.box"
+      "output": "build/tdb-asterisk.box",
+      "keep_input_artifact": true
     }
   ]
 }

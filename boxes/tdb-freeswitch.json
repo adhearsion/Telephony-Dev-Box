@@ -42,7 +42,8 @@
     {
       "type": "vagrant",
       "compression_level": 9,
-      "output": "build/tdb-freeswitch.box"
+      "output": "build/tdb-freeswitch.box",
+      "keep_input_artifact": true
     }
   ]
 }

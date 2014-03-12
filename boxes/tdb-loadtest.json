@@ -42,7 +42,8 @@
     {
       "type": "vagrant",
       "compression_level": 9,
-      "output": "build/tdb-loadtest.box"
+      "output": "build/tdb-loadtest.box",
+      "keep_input_artifact": true
     }
   ]
 }

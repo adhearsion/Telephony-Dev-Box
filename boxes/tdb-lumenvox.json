@@ -38,7 +38,8 @@
     {
       "type": "vagrant",
       "compression_level": 9,
-      "output": "build/tdb-lumenvox.box"
+      "output": "build/tdb-lumenvox.box",
+      "keep_input_artifact": true
     }
   ]
 }

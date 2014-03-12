@@ -42,7 +42,8 @@
     {
       "type": "vagrant",
       "compression_level": 9,
-      "output": "build/tdb-adhearsion.box"
+      "output": "build/tdb-adhearsion.box",
+      "keep_input_artifact": true
     }
   ]
 }
