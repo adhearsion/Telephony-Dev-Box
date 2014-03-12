@@ -7,6 +7,7 @@
       "ssh_password": "vagrant",
       "ssh_wait_timeout": "30s",
       "shutdown_command": "echo 'packer' | sudo -S shutdown -P now",
+      "vm_name": "TDB Adhearsion",
       "vboxmanage": [
         [
           "modifyvm",
