@@ -19,3 +19,7 @@ fetch_cookbooks:
 
 build_tdb_boxes:
 	tmp/packer build boxes/tdb-adhearsion.json
+	tmp/packer build boxes/tdb-asterisk.json
+	tmp/packer build boxes/tdb-freeswitch.json
+	tmp/packer build boxes/tdb-loadtest.json
+	tmp/packer build boxes/tdb-lumenvox.json
