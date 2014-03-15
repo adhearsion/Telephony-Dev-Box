@@ -1,8 +1,9 @@
+name              "telephony-dev-box"
 maintainer        "Mojo Lingo LLC"
 maintainer_email  "ops@mojolingo.com"
 license           "MIT"
-description       "Miscellaneous small tasks"
-recipe            "mojolingo-misc::no_iptables", "Kill iptables"
+description       "Miscellaneous build stuff for Telephony Dev Box"
+recipe            "telephony-dev-box::no_iptables", "Kill iptables"
 
 %w{ ubuntu centos }.each do |os|
   supports os

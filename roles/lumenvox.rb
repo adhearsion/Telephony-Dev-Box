@@ -5,7 +5,7 @@ run_list "recipe[lumenvox::core]",
   "recipe[lumenvox::sre]",
   "recipe[lumenvox::media_server]",
   "recipe[lumenvox::tts]",
-  "recipe[mojolingo-misc::no_iptables]"
+  "recipe[telephony-dev-box::no_iptables]"
 
 override_attributes 'lumenvox' => {
   'tts' => {

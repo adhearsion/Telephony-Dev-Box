@@ -1,7 +1,7 @@
 {
   "sources": {
-    "mojolingo-misc": {
-      "path": "./mojolingo-misc"
+    "telephony-dev-box": {
+      "path": "./cookbook"
     },
     "apt": {
       "locked_version": "2.3.0"

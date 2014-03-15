@@ -3,7 +3,7 @@
 site :opscode
 
 # Misc
-cookbook 'mojolingo-misc', path: 'mojolingo-misc'
+cookbook 'telephony-dev-box', path: 'cookbook'
 cookbook 'apt'
 
 # Asterisk

@@ -2,7 +2,7 @@ name 'asterisk'
 description 'Installs Asterisk to run Adhearsion apps'
 run_list "recipe[asterisk]",
   "recipe[unimrcp]",
-  "recipe[mojolingo-misc::mrcp_server_config]",
+  "recipe[telephony-dev-box::mrcp_server_config]",
   "recipe[asterisk::unimrcp]"
 
 override_attributes asterisk: {
