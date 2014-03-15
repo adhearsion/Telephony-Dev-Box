@@ -1,4 +1,4 @@
-default: create_work_directory fetch_origin_base_boxes build_tdb_boxes
+default: create_work_directory fetch_origin_base_boxes fetch_cookbooks build_tdb_boxes
 
 fetch_packer:
 	cd tmp; wget https://dl.bintray.com/mitchellh/packer/0.5.2_linux_amd64.zip; unzip 0.5.2_linux_amd64.zip
