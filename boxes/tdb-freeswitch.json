@@ -17,6 +17,7 @@
         "--version", "2.0"
       ],
       "format": "ova",
+      "headless": true,
       "vboxmanage": [
         [
           "modifyvm",
