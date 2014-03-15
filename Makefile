@@ -1,4 +1,4 @@
-default: fetch_cookbooks build_tdb_boxes
+default: fetch_cookbooks boxes
 
 clean: create_work_directory fetch_origin_base_boxes
 
@@ -22,7 +22,7 @@ fetch_origin_base_boxes:
 fetch_cookbooks:
 	berks install -p cookbooks
 
-build_tdb_boxes:
+boxes:
 	packer build boxes/tdb-adhearsion.json
 	packer build boxes/tdb-asterisk.json
 	packer build boxes/tdb-freeswitch.json
