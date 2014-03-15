@@ -16,6 +16,7 @@
         "--producturl", "http://mojolingo.github.io/Telephony-Dev-Box/",
         "--version", "2.0"
       ],
+      "format": "ova",
       "vboxmanage": [
         [
           "modifyvm",
