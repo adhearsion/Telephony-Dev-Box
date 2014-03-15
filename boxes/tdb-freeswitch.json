@@ -18,6 +18,7 @@
       ],
       "format": "ova",
       "headless": true,
+      "output_directory": "build/freeswitch",
       "vboxmanage": [
         [
           "modifyvm",
