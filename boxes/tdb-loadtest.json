@@ -8,6 +8,14 @@
       "ssh_wait_timeout": "30s",
       "shutdown_command": "echo 'packer' | sudo -S shutdown -P now",
       "vm_name": "TDB Loadtest",
+      "export_opts": [
+        "--vsys", "0",
+        "--vendor", "MojoLingo",
+        "--vendorurl", "http://mojolingo.com",
+        "--product", "Telephony Dev Box - Loadtest",
+        "--producturl", "http://mojolingo.github.io/Telephony-Dev-Box/",
+        "--version", "2.0"
+      ],
       "vboxmanage": [
         [
           "modifyvm",
