@@ -11,7 +11,6 @@ This project ships with configuration for each of the three supported telephony 
   * `vagrant up adhearsion`
   * `vagrant up asterisk`
   * `vagrant up freeswitch`
-  * `vagrant up prism`
   * `vagrant up lumenvox`
   * `vagrant up loadtest`
 
@@ -25,9 +24,9 @@ Configure it to connect to the platform of your choice using one of the followin
 
 ```ruby
 ##
-# Use with Rayo (eg FreeSWITCH or Voxeo PRISM)
+# Use with Rayo (FreeSWITCH)
 #
-config.punchblock.username = "usera@freeswitch.local-dev.mojolingo.com" # Your XMPP JID for use with Rayo (swap 'freeswitch' for 'prism' as appropriate)
+config.punchblock.username = "usera@freeswitch.local-dev.mojolingo.com" # Your XMPP JID for use with Rayo
 config.punchblock.password = "1" # Your XMPP password
 ```
 
@@ -42,7 +41,7 @@ config.punchblock.host = "asterisk.local-dev.mojolingo.com" # Your AMI host
 ```
 
 ### Test
-Boot your Adhearsion app and call in. You can dial `usera@[asterisk/freeswitch/prism].local-dev.mojolingo.com`, or any number from a registered endpoint.
+Boot your Adhearsion app and call in. You can dial `usera@[asterisk/freeswitch].local-dev.mojolingo.com`, or any number from a registered endpoint.
 
 ### Register your softphone (optional)
 The Asterisk and FreeSWITCH VMs contain preconfigured "usera" and "userb" accounts for softphones. Use the following credentials to register:
