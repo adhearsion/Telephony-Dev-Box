@@ -1,3 +1,4 @@
+name              "mojolingo-misc"
 maintainer        "Mojo Lingo LLC"
 maintainer_email  "ops@mojolingo.com"
 license           "MIT"

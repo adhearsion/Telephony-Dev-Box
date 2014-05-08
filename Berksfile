@@ -1,11 +1,10 @@
 #!/usr/bin/env ruby
 #^syntax detection
-site :opscode
+source "http://api.berkshelf.com"
 
 # Misc
 cookbook 'mojolingo-misc', path: 'mojolingo-misc'
 cookbook 'apt'
-cookbook 'yum'
 
 # Asterisk
 cookbook 'asterisk', '~> 0.2.7'
@@ -14,9 +13,8 @@ cookbook 'unimrcp'
 # FreeSWITCH
 cookbook 'freeswitch', '~> 0.2'
 
-
 # Lumenvox
-cookbook 'lumenvox', github: 'mojolingo/lumenvox-chef'
+cookbook 'lumenvox', '~> 0.1'
 
 # Load test
 cookbook 'sipp'
