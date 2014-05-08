@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 #^syntax detection
-site :opscode
+source "http://api.berkshelf.com"
 
 # Misc
 cookbook 'telephony-dev-box', path: 'cookbook'
@@ -14,7 +14,7 @@ cookbook 'unimrcp'
 cookbook 'freeswitch', '~> 0.2'
 
 # Lumenvox
-cookbook 'lumenvox'
+cookbook 'lumenvox', '~> 0.1'
 
 # Load test
 cookbook 'sipp'

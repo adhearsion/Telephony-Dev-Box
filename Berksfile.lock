@@ -1,67 +1,64 @@
-{
-  "sources": {
-    "telephony-dev-box": {
-      "path": "./cookbook"
-    },
-    "apt": {
-      "locked_version": "2.3.0"
-    },
-    "asterisk": {
-      "locked_version": "0.3.0"
-    },
-    "unimrcp": {
-      "locked_version": "0.2.0"
-    },
-    "freeswitch": {
-      "locked_version": "0.3.2"
-    },
-    "lumenvox": {
-      "locked_version": "0.1.0"
-    },
-    "sipp": {
-      "locked_version": "1.0.1"
-    },
-    "sudo": {
-      "locked_version": "2.2.2"
-    },
-    "wav2rtp": {
-      "locked_version": "1.0.0"
-    },
-    "rbenv": {
-      "locked_version": "1.7.1"
-    },
-    "git": {
-      "locked_version": "3.0.0"
-    },
-    "dmg": {
-      "locked_version": "2.2.0"
-    },
-    "build-essential": {
-      "locked_version": "1.4.4"
-    },
-    "windows": {
-      "locked_version": "1.30.0"
-    },
-    "chef_handler": {
-      "locked_version": "1.1.5"
-    },
-    "runit": {
-      "locked_version": "1.5.8"
-    },
-    "yum": {
-      "locked_version": "3.1.2"
-    },
-    "yum-epel": {
-      "locked_version": "0.3.4"
-    },
-    "ohai": {
-      "locked_version": "2.0.0"
-    },
-    "java": {
-      "locked_version": "1.6.0"
-    },
-    "yum-repoforge": {
-      "locked_version": "0.2.0"
-    }
-  }
-}
+DEPENDENCIES
+  apt
+  asterisk (~> 0.3.0)
+  freeswitch (~> 0.2)
+  lumenvox (~> 0.1)
+  sipp
+  sudo
+  telephony-dev-box
+    path: cookbook
+  unimrcp
+  wav2rtp (~> 1.0)
+
+GRAPH
+  apt (2.3.10)
+  asterisk (0.3.0)
+    apt (~> 2.2)
+    build-essential (~> 1.4)
+    unimrcp (~> 0.2)
+    yum (~> 3.0)
+  build-essential (1.4.4)
+  chef_handler (1.1.6)
+  dmg (2.2.0)
+  freeswitch (0.6.4)
+    apt (~> 2.2)
+    yum (~> 3.1)
+  git (4.0.2)
+    build-essential (>= 0.0.0)
+    dmg (>= 0.0.0)
+    runit (>= 1.0.0)
+    windows (>= 0.0.0)
+    yum (~> 3.0)
+    yum-epel (>= 0.0.0)
+  java (1.22.0)
+  lumenvox (0.1.1)
+    yum (>= 0.0.0)
+    yum-repoforge (>= 0.0.0)
+  ohai (2.0.0)
+  rbenv (1.7.1)
+    apt (>= 0.0.0)
+    build-essential (>= 0.0.0)
+    git (>= 0.0.0)
+    ohai (>= 1.1)
+  runit (1.5.10)
+    build-essential (>= 0.0.0)
+    yum (~> 3.0)
+    yum-epel (>= 0.0.0)
+  sipp (1.0.1)
+  sudo (2.5.2)
+  telephony-dev-box (0.0.0)
+    java (~> 1.6)
+    rbenv (>= 0.0.0)
+    sipp (~> 1.0)
+    wav2rtp (~> 1.0)
+  unimrcp (0.2.0)
+    build-essential (~> 1.4)
+  wav2rtp (1.0.0)
+  windows (1.31.0)
+    chef_handler (>= 0.0.0)
+  yum (3.2.0)
+  yum-epel (0.3.6)
+    yum (~> 3.0)
+  yum-repoforge (0.2.0)
+    yum (~> 3.0)
+    yum-epel (>= 0.0.0)
