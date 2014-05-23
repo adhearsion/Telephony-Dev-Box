@@ -20,7 +20,7 @@ fetch_origin_base_boxes:
 	cd tmp/centos; wget http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_centos-6.5_chef-provisionerless.box; tar -xf opscode_centos-6.5_chef-provisionerless.box
 
 fetch_cookbooks:
-	berks install -p cookbooks
+	berks vendor cookbooks
 
 boxes:
 	packer build boxes/tdb-adhearsion.json
