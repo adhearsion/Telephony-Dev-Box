@@ -1,20 +1,22 @@
 DEPENDENCIES
   apt
-  asterisk (~> 0.2.7)
+  asterisk (~> 0.3.0)
   freeswitch (~> 0.2)
   lumenvox (~> 0.1)
-  mojolingo-misc
-    path: mojolingo-misc
   sipp
   sudo
+  telephony-dev-box
+    path: cookbook
   unimrcp
   wav2rtp (~> 1.0)
 
 GRAPH
   apt (2.3.10)
-  asterisk (0.2.7)
+  asterisk (0.3.0)
     apt (~> 2.2)
-    unimrcp (~> 0.1)
+    build-essential (~> 1.4)
+    unimrcp (~> 0.2)
+    yum (~> 3.0)
   build-essential (1.4.4)
   chef_handler (1.1.6)
   dmg (2.2.0)
@@ -32,11 +34,6 @@ GRAPH
   lumenvox (0.1.1)
     yum (>= 0.0.0)
     yum-repoforge (>= 0.0.0)
-  mojolingo-misc (0.0.0)
-    java (~> 1.6)
-    rbenv (>= 0.0.0)
-    sipp (~> 1.0)
-    wav2rtp (~> 1.0)
   ohai (2.0.0)
   rbenv (1.7.1)
     apt (>= 0.0.0)
@@ -49,6 +46,11 @@ GRAPH
     yum-epel (>= 0.0.0)
   sipp (1.0.1)
   sudo (2.5.2)
+  telephony-dev-box (0.0.0)
+    java (~> 1.6)
+    rbenv (>= 0.0.0)
+    sipp (~> 1.0)
+    wav2rtp (~> 1.0)
   unimrcp (0.2.0)
     build-essential (~> 1.4)
   wav2rtp (1.0.0)

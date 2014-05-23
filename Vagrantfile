@@ -1,9 +1,10 @@
 Vagrant.configure("2") do |config|
-  config.vm.box = 'tdb-ubuntu1204-v9'
-  config.vm.box_url = 'http://ci.mojolingo.com/job/Telephony-Dev-Box-Base-Boxen/9/artifact/tdb-ubuntu1204.box'
   config.berkshelf.enabled = true
 
   config.vm.define :adhearsion do |adhearsion|
+    adhearsion.vm.box = 'tdb-adhearsion'
+    adhearsion.vm.box_url = 'build/tdb-adhearsion.box'
+
     adhearsion.vm.network :private_network, ip: "10.203.175.10"
     adhearsion.vm.hostname = "adhearsion.local-dev.mojolingo.com"
 
@@ -17,12 +18,13 @@ Vagrant.configure("2") do |config|
       chef.roles_path     = "roles"
 
       chef.add_role "adhearsion"
-
-      chef.log_level = :debug
     end
   end
 
   config.vm.define :asterisk do |asterisk|
+    asterisk.vm.box = 'tdb-asterisk'
+    asterisk.vm.box_url = 'build/tdb-asterisk.box'
+
     public_ip = "10.203.175.11"
 
     asterisk.vm.network :private_network, ip: public_ip
@@ -39,13 +41,14 @@ Vagrant.configure("2") do |config|
 
       chef.add_role "asterisk"
 
-      chef.log_level = :debug
-
       chef.json = {}
     end
   end
 
   config.vm.define :freeswitch do |freeswitch|
+    freeswitch.vm.box = 'tdb-freeswitch'
+    freeswitch.vm.box_url = 'build/tdb-freeswitch.box'
+
     public_ip = "10.203.175.13"
     domain = "freeswitch.local-dev.mojolingo.com"
 
@@ -64,8 +67,6 @@ Vagrant.configure("2") do |config|
 
       chef.add_role "freeswitch"
 
-      chef.log_level = :debug
-
       chef.json = {
         freeswitch: {
           local_ip: public_ip,
@@ -79,8 +80,8 @@ Vagrant.configure("2") do |config|
     domain = "lumenvox.local-dev.mojolingo.com"
     ip     = "10.203.175.14"
 
-    lumenvox.vm.box = 'tdb-centos64-v9'
-    lumenvox.vm.box_url = 'http://ci.mojolingo.com/job/Telephony-Dev-Box-Base-Boxen/9/artifact/tdb-centos64.box'
+    lumenvox.vm.box = 'tdb-lumenvox'
+    lumenvox.vm.box_url = 'build/tdb-lumenvox.box'
     lumenvox.vm.network :private_network, ip: ip
     lumenvox.vm.hostname = domain
 
@@ -95,8 +96,6 @@ Vagrant.configure("2") do |config|
       chef.roles_path     = "roles"
 
       chef.add_role "lumenvox"
-
-      chef.log_level = :debug
 
       chef.json = {
         'lumenvox' => {
@@ -113,6 +112,9 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define :loadtest do |loadtest|
+    loadtest.vm.box = 'tdb-loadtest'
+    loadtest.vm.box_url = 'build/tdb-loadtest.box'
+
     loadtest.vm.network :private_network, ip: '10.203.175.15'
     loadtest.vm.hostname = 'loadtest.local-dev.mojolingo.com'
 
@@ -126,8 +128,6 @@ Vagrant.configure("2") do |config|
       chef.roles_path     = "roles"
 
       chef.add_role "loadtest"
-
-      chef.log_level = :debug
     end
   end
 end

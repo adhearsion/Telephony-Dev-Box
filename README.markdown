@@ -18,27 +18,7 @@ One thing to note is that the "adhearsion" VM is especially optional.  Most of t
 
 ## Usage
 
-### Create an Adhearsion app
-
-Configure it to connect to the platform of your choice using one of the following samples:
-
-```ruby
-##
-# Use with Rayo (FreeSWITCH)
-#
-config.punchblock.username = "usera@freeswitch.local-dev.mojolingo.com" # Your XMPP JID for use with Rayo
-config.punchblock.password = "1" # Your XMPP password
-```
-
-```ruby
-##
-# Use with Asterisk
-#
-config.punchblock.platform = :asterisk # Use Asterisk
-config.punchblock.username = "manager" # Your AMI username
-config.punchblock.password = "password" # Your AMI password
-config.punchblock.host = "asterisk.local-dev.mojolingo.com" # Your AMI host
-```
+Generated Adhearsion apps have sample config which targets Telephony Dev Box by default.
 
 ### Test
 Boot your Adhearsion app and call in. You can dial `usera@[asterisk/freeswitch].local-dev.mojolingo.com`, or any number from a registered endpoint.
@@ -48,7 +28,3 @@ The Asterisk and FreeSWITCH VMs contain preconfigured "usera" and "userb" accoun
 
 * Username: usera@[asterisk/freeswitch].local-dev.mojolingo.com / Password: usera
 * Username: userb@[asterisk/freeswitch].local-dev.mojolingo.com / Password: userb
-
-## Base Boxes
-
-This project includes base box templates for use on Mojo Lingo projects. These base boxes are published at http://ci.mojolingo.com/job/Telephony-Dev-Box-Base-Boxen, and include Chef 11. Ubuntu 12.04 and CentOS 6.4 boxes are available, both 64bit. The main difference between these and other publicly available base boxes is the visibility into their build mechanism and that they *never* change after they are published - new builds always have a new build number in their URL; this way you can be sure of base box stability.

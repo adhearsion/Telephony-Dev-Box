@@ -14,5 +14,5 @@ bash "install_unimrcp_server_init_script" do
 end
 
 service 'unimrcp-server' do
-  action [:enable, :start]
+  action [:enable, :restart]
 end

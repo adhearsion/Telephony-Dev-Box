@@ -2,8 +2,8 @@ name 'freeswitch'
 description 'Installs FreeSWITCH to run Adhearsion apps'
 run_list "recipe[apt]",
   "recipe[freeswitch::rayo]",
-  "recipe[mojolingo-misc::freeswitch_ies]",
-  "recipe[mojolingo-misc::freeswitch_lumenvox]"
+  "recipe[telephony-dev-box::freeswitch_ies]",
+  "recipe[telephony-dev-box::freeswitch_lumenvox]"
 
 override_attributes({
   'freeswitch' => {

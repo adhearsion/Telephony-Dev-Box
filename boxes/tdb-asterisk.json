@@ -1,0 +1,61 @@
+{
+  "builders": [
+    {
+      "type": "virtualbox-ovf",
+      "source_path": "tmp/ubuntu/box.ovf",
+      "ssh_username": "vagrant",
+      "ssh_password": "vagrant",
+      "ssh_wait_timeout": "30s",
+      "shutdown_command": "echo 'vagrant' | sudo -S shutdown -P now",
+      "vm_name": "TDB Asterisk",
+      "export_opts": [
+        "--vsys", "0",
+        "--vendor", "MojoLingo",
+        "--vendorurl", "http://mojolingo.com",
+        "--product", "Telephony Dev Box - Asterisk",
+        "--producturl", "http://mojolingo.github.io/Telephony-Dev-Box/",
+        "--version", "2.0"
+      ],
+      "format": "ova",
+      "headless": true,
+      "output_directory": "build/asterisk",
+      "vboxmanage": [
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--memory",
+          "1024"
+        ],
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--cpus",
+          "1"
+        ]
+      ]
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "inline": ["sudo apt-get update && sudo apt-get -y install curl"]
+    },
+    {
+      "type": "chef-solo",
+      "cookbook_paths": ["cookbooks"],
+      "roles_path": "roles",
+      "data_bags_path": "data_bags",
+      "run_list":[
+        "role[asterisk]"
+      ]
+    }
+  ],
+  "post-processors": [
+    {
+      "type": "vagrant",
+      "compression_level": 9,
+      "output": "build/tdb-asterisk.box",
+      "keep_input_artifact": true
+    }
+  ]
+}

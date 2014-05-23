@@ -1,0 +1,57 @@
+{
+  "builders": [
+    {
+      "type": "virtualbox-ovf",
+      "source_path": "tmp/centos/box.ovf",
+      "ssh_username": "vagrant",
+      "ssh_password": "vagrant",
+      "ssh_wait_timeout": "30s",
+      "shutdown_command": "echo 'vagrant' | sudo -S shutdown -P now",
+      "vm_name": "TDB LumenVox",
+      "export_opts": [
+        "--vsys", "0",
+        "--vendor", "MojoLingo",
+        "--vendorurl", "http://mojolingo.com",
+        "--product", "Telephony Dev Box - LumenVox",
+        "--producturl", "http://mojolingo.github.io/Telephony-Dev-Box/",
+        "--version", "2.0"
+      ],
+      "format": "ova",
+      "headless": true,
+      "output_directory": "build/lumenvox",
+      "vboxmanage": [
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--memory",
+          "1024"
+        ],
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--cpus",
+          "1"
+        ]
+      ]
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "chef-solo",
+      "cookbook_paths": ["cookbooks"],
+      "roles_path": "roles",
+      "data_bags_path": "data_bags",
+      "run_list":[
+        "role[lumenvox]"
+      ]
+    }
+  ],
+  "post-processors": [
+    {
+      "type": "vagrant",
+      "compression_level": 9,
+      "output": "build/tdb-lumenvox.box",
+      "keep_input_artifact": true
+    }
+  ]
+}

@@ -3,11 +3,11 @@
 source "http://api.berkshelf.com"
 
 # Misc
-cookbook 'mojolingo-misc', path: 'mojolingo-misc'
+cookbook 'telephony-dev-box', path: 'cookbook'
 cookbook 'apt'
 
 # Asterisk
-cookbook 'asterisk', '~> 0.2.7'
+cookbook 'asterisk', '~> 0.3.0'
 cookbook 'unimrcp'
 
 # FreeSWITCH

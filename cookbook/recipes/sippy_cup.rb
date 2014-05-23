@@ -3,7 +3,7 @@ include_recipe 'wav2rtp'
 include_recipe 'rbenv::default'
 include_recipe 'rbenv::ruby_build'
 
-ruby_v = '1.9.3-p484'
+ruby_v = '1.9.3-p545'
 
 rbenv_ruby ruby_v do
   global true

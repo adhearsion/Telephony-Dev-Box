@@ -1,14 +1,30 @@
-base_boxes: bundle_install ubuntu_base_box centos_base_box
+default: fetch_cookbooks boxes
 
-bundle_install:
-	bundle install
+clean: create_work_directory fetch_origin_base_boxes
 
-ubuntu_base_box:
-	bundle exec veewee vbox build tdb-ubuntu1204 --force --nogui --auto
-	bundle exec veewee vbox export tdb-ubuntu1204
-	bundle exec veewee vbox destroy tdb-ubuntu1204
+fetch_packer:
+	cd tmp; wget https://dl.bintray.com/mitchellh/packer/0.5.2_linux_amd64.zip; unzip 0.5.2_linux_amd64.zip
+	export PATH=$PATH:tmp/packer
 
-centos_base_box:
-	bundle exec veewee vbox build tdb-centos64 --force --nogui --auto
-	bundle exec veewee vbox export tdb-centos64
-	bundle exec veewee vbox destroy tdb-centos64
+ci: clean fetch_packer default
+
+create_work_directory:
+	rm -r tmp
+	mkdir -p tmp
+
+fetch_origin_base_boxes:
+	mkdir tmp/ubuntu
+	cd tmp/ubuntu; wget http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_ubuntu-12.04_chef-provisionerless.box; tar -xf opscode_ubuntu-12.04_chef-provisionerless.box
+
+	mkdir tmp/centos
+	cd tmp/centos; wget http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_centos-6.5_chef-provisionerless.box; tar -xf opscode_centos-6.5_chef-provisionerless.box
+
+fetch_cookbooks:
+	berks vendor cookbooks
+
+boxes:
+	packer build boxes/tdb-adhearsion.json
+	packer build boxes/tdb-asterisk.json
+	packer build boxes/tdb-freeswitch.json
+	packer build boxes/tdb-loadtest.json
+	packer build boxes/tdb-lumenvox.json
