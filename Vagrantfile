@@ -1,6 +1,5 @@
 Vagrant.configure("2") do |config|
-  config.vm.box = 'tdb-ubuntu1204-v9'
-  config.vm.box_url = 'http://ci.mojolingo.com/job/Telephony-Dev-Box-Base-Boxen/9/artifact/tdb-ubuntu1204.box'
+  config.vm.box = 'chef/ubuntu-12.04'
   config.berkshelf.enabled = true
 
   config.vm.define :adhearsion do |adhearsion|
@@ -79,8 +78,7 @@ Vagrant.configure("2") do |config|
     domain = "lumenvox.local-dev.mojolingo.com"
     ip     = "10.203.175.14"
 
-    lumenvox.vm.box = 'tdb-centos64-v9'
-    lumenvox.vm.box_url = 'http://ci.mojolingo.com/job/Telephony-Dev-Box-Base-Boxen/9/artifact/tdb-centos64.box'
+    lumenvox.vm.box = 'chef/centos-6.5'
     lumenvox.vm.network :private_network, ip: ip
     lumenvox.vm.hostname = domain
 
