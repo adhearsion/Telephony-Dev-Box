@@ -1,6 +1,7 @@
 Vagrant.configure("2") do |config|
   config.vm.box = 'chef/ubuntu-12.04'
   config.berkshelf.enabled = true
+  config.omnibus.chef_version = :latest
 
   config.vm.define :adhearsion do |adhearsion|
     adhearsion.vm.network :private_network, ip: "10.203.175.10"
