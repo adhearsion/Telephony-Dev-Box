@@ -11,7 +11,7 @@ cookbook 'asterisk', '~> 0.2.7'
 cookbook 'unimrcp'
 
 # FreeSWITCH
-cookbook 'freeswitch', '~> 0.2'
+cookbook 'freeswitch', '~> 0.7.0'
 
 # Lumenvox
 cookbook 'lumenvox', '~> 0.1'

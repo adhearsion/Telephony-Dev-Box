@@ -32,7 +32,6 @@ override_attributes({
         applications/mod_commands
         applications/mod_conference
         applications/mod_dptools
-        applications/mod_enum
         applications/mod_db
         applications/mod_fifo
         applications/mod_hash
