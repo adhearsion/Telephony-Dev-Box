@@ -14,17 +14,32 @@ override_attributes 'lumenvox' => {
   'tts' => {
     'version' => '11.3.100-1SF.el6',
     'voices' => [
-        {"voice" => "Chloe",
-         "version" => "11.3.100-1"
-        }
+        {
+          "voice" => "Ben",
+          "version" => "11.3.100-1"
+        },
+        {
+          "voice" => "Chloe",
+          "version" => "11.3.100-1"
+        },
+        {
+          "voice" => "Chris",
+          "version" => "11.3.100-1"
+        },
+        {
+          "voice" => "Lindsey",
+          "version" => "11.3.100-1"
+        },
     ]
   },
   'sre' => {
     'version' => '11.3.100-2.el6',
-    'language_packs' => [{
-      "language" => "BritishEnglish",
-      "version" => "11.3.100-1"
-    }]
+    'language_packs' => [
+      {
+        "language" => "BritishEnglish",
+        "version" => "11.3.100-1"
+      },
+    ]
   },
   'media_server' => {
     'version' => '11.3.100-2.el6'
@@ -33,6 +48,6 @@ override_attributes 'lumenvox' => {
     'version' => '11.3.100-2.el6',
     'license_servers' => ["208.52.151.220"],
     'default_tts_voice' => "default",
-    'default_tts_language' => "en-GB"
+    'default_tts_language' => "en-US"
   }
 }
