@@ -18,7 +18,7 @@ Vagrant.configure("2") do |config|
 
       chef.add_role "adhearsion"
 
-      chef.log_level = :debug
+      chef.log_level = :info
     end
   end
 
@@ -30,6 +30,7 @@ Vagrant.configure("2") do |config|
 
     asterisk.vm.provider :virtualbox do |vb|
       vb.name = "TDB-asterisk"
+      #vb.gui = true
     end
 
     asterisk.vm.provision :chef_solo do |chef|
@@ -39,7 +40,7 @@ Vagrant.configure("2") do |config|
 
       chef.add_role "asterisk"
 
-      chef.log_level = :debug
+      chef.log_level = :info
 
       chef.json = {}
     end
@@ -64,7 +65,7 @@ Vagrant.configure("2") do |config|
 
       chef.add_role "freeswitch"
 
-      chef.log_level = :debug
+      chef.log_level = :info
 
       chef.json = {
         freeswitch: {
@@ -81,9 +82,11 @@ Vagrant.configure("2") do |config|
 
     lumenvox.vm.box = 'chef/centos-6.5'
     lumenvox.vm.network :private_network, ip: ip
+    lumenvox.vm.network :public_network, ip: '192.168.2.2', bridge: 'br4: Ethernet Thunderbolt'
     lumenvox.vm.hostname = domain
 
     lumenvox.vm.provider :virtualbox do |vb|
+      #vb.gui = true
       vb.name = "TDB-lumenvox"
       vb.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
     end
@@ -95,7 +98,7 @@ Vagrant.configure("2") do |config|
 
       chef.add_role "lumenvox"
 
-      chef.log_level = :debug
+      chef.log_level = :info
 
       chef.json = {
         'lumenvox' => {
@@ -126,7 +129,7 @@ Vagrant.configure("2") do |config|
 
       chef.add_role "loadtest"
 
-      chef.log_level = :debug
+      chef.log_level = :info
     end
   end
 end
