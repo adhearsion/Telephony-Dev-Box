@@ -53,3 +53,17 @@ The Asterisk and FreeSWITCH VMs contain preconfigured "usera" and "userb" accoun
 ## Base Boxes
 
 This project includes base box templates for use on Mojo Lingo projects. These base boxes are published at http://ci.mojolingo.com/job/Telephony-Dev-Box-Base-Boxen, and include Chef 11. Ubuntu 12.04 and CentOS 6.4 boxes are available, both 64bit. The main difference between these and other publicly available base boxes is the visibility into their build mechanism and that they *never* change after they are published - new builds always have a new build number in their URL; this way you can be sure of base box stability.
+
+## Common Issues
+
+If your locale is POSIX or C (primarily computers in the United States, or computers using the default US English locale), you may see an error similar to the following:
+
+```
+stderr: /opt/chefdk/embedded/lib/ruby/2.1.0/json/common.rb:155:in `encode': "\xE2" on US-ASCII (Encoding::InvalidByteSequenceError)
+```
+
+To fix this, simply set a UTF locale:
+
+```bash
+LC_ALL=en_US.UTF-8 vagrant up
+```
