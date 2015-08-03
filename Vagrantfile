@@ -1,5 +1,5 @@
 Vagrant.configure("2") do |config|
-  config.vm.box = 'chef/ubuntu-12.04'
+  config.vm.box = 'chef/debian-8.0'
   config.berkshelf.enabled = true
   config.omnibus.chef_version = :latest
 

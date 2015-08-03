@@ -49,6 +49,9 @@ override_attributes({
         codecs/mod_g729
         codecs/mod_h26x
         codecs/mod_speex
+        codecs/mod_av
+        codecs/mod_vlc
+        codecs/mod_vpx
         dialplans/mod_dialplan_xml
         dialplans/mod_dialplan_asterisk
         endpoints/mod_sofia
