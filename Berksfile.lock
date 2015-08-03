@@ -1,7 +1,10 @@
 DEPENDENCIES
   apt
   asterisk (~> 0.2.7)
-  freeswitch (~> 1.0.0)
+  freeswitch
+    git: git://github.com/mojolingo/freeswitch-cookbook.git
+    revision: 09e5d63d85a0373bdbb86c9ab63674ebf32ffd88
+    branch: feature/modernize
   freeswitch-rayo
   lumenvox (~> 0.1)
   mojolingo-misc
