@@ -5,5 +5,10 @@
   "full_name": "User A",
   "password": "usera",
   "username": "usera",
-  "context": "adhearsion"
+  "context": "adhearsion",
+  "additional_settings": {
+    "transport": "ws,wss",
+    "avpf": "yes",
+    "encryption": "yes"
+  }
 }
