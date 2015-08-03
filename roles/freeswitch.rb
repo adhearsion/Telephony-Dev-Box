@@ -21,7 +21,9 @@ override_attributes({
         freeswitch-conf-rayo
       )
     },
+    'install_method' => 'source',
     'source' => {
+      'git_branch' => 'master',
       'modules' => %w[
         loggers/mod_console
         loggers/mod_logfile

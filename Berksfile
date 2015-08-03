@@ -11,7 +11,7 @@ cookbook 'asterisk', '~> 0.2.7'
 cookbook 'unimrcp'
 
 # FreeSWITCH
-cookbook 'freeswitch', '~> 1.0.0'
+cookbook 'freeswitch', github: 'mojolingo/freeswitch-cookbook', branch: 'feature/modernize'
 cookbook 'freeswitch-rayo'
 
 # Lumenvox
