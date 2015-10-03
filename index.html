@@ -1,41 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-us">
   <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <title>Telephony Dev Box by mojolingo</title>
+    <meta charset="UTF-8">
+    <title>Telephony Dev Box by adhearsion</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
   </head>
-
   <body>
-    <div id="container">
-      <div class="inner">
+    <section class="page-header">
+      <h1 class="project-name">Telephony Dev Box</h1>
+      <h2 class="project-tagline">Development environments for VoIP Applications</h2>
+      <a href="https://github.com/adhearsion/Telephony-Dev-Box" class="btn">View on GitHub</a>
+      <a href="https://github.com/adhearsion/Telephony-Dev-Box/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/adhearsion/Telephony-Dev-Box/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
 
-        <header>
-          <h1>Telephony Dev Box</h1>
-          <h2>Development environments for VoIP Applications</h2>
-        </header>
-
-        <section id="downloads" class="clearfix">
-          <a href="https://github.com/mojolingo/Telephony-Dev-Box/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
-          <a href="https://github.com/mojolingo/Telephony-Dev-Box/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
-          <a href="https://github.com/mojolingo/Telephony-Dev-Box" id="view-on-github" class="button"><span>View on GitHub</span></a>
-        </section>
-
-        <hr>
-
-        <section id="main_content">
-          <h1>
-<a name="telephony-dev-box" class="anchor" href="#telephony-dev-box"><span class="octicon octicon-link"></span></a>Telephony Dev Box</h1>
+    <section class="main-content">
+      <h1>
+<a id="telephony-dev-box" class="anchor" href="#telephony-dev-box" aria-hidden="true"><span class="octicon octicon-link"></span></a>Telephony Dev Box</h1>
 
 <h2>
-<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
 
 <ol>
 <li>Install <a href="https://www.virtualbox.org/wiki/Downloads">virtualbox</a>
@@ -56,57 +44,61 @@ This project ships with configuration for each of the three supported telephony 
 <li><code>vagrant up loadtest</code></li>
 </ul>
 </li>
-</ol><p>One thing to note is that the "adhearsion" VM is especially optional.  Most of the Mojo Lingo developers simply run Adhearsion locally. We provided a VM for those users who had a difficult time getting a Ruby build running on their system. If you already have a functional Ruby environment (with RubyGems) then feel free to just <code>gem install adhearsion</code> and keep going.</p>
+</ol>
+
+<p>One thing to note is that the "adhearsion" VM is especially optional.  Most of the Mojo Lingo developers simply run Adhearsion locally. We provided a VM for those users who had a difficult time getting a Ruby build running on their system. If you already have a functional Ruby environment (with RubyGems) then feel free to just <code>gem install adhearsion</code> and keep going.</p>
 
 <h2>
-<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
 
 <h3>
-<a name="create-an-adhearsion-app" class="anchor" href="#create-an-adhearsion-app"><span class="octicon octicon-link"></span></a>Create an Adhearsion app</h3>
+<a id="create-an-adhearsion-app" class="anchor" href="#create-an-adhearsion-app" aria-hidden="true"><span class="octicon octicon-link"></span></a>Create an Adhearsion app</h3>
 
 <p>Configure it to connect to the platform of your choice using one of the following samples:</p>
 
-<div class="highlight highlight-ruby"><pre><span class="c1">##</span>
-<span class="c1"># Use with Rayo (eg FreeSWITCH or Voxeo PRISM)</span>
-<span class="c1">#</span>
-<span class="n">config</span><span class="o">.</span><span class="n">punchblock</span><span class="o">.</span><span class="n">username</span> <span class="o">=</span> <span class="s2">"usera@freeswitch.local-dev.mojolingo.com"</span> <span class="c1"># Your XMPP JID for use with Rayo (swap 'freeswitch' for 'prism' as appropriate)</span>
-<span class="n">config</span><span class="o">.</span><span class="n">punchblock</span><span class="o">.</span><span class="n">password</span> <span class="o">=</span> <span class="s2">"1"</span> <span class="c1"># Your XMPP password</span>
-</pre></div>
+<div class="highlight highlight-source-ruby"><pre><span class="pl-c">##</span>
+<span class="pl-c"># Use with Rayo (eg FreeSWITCH or Voxeo PRISM)</span>
+<span class="pl-c">#</span>
+config.punchblock.username <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>usera@freeswitch.local-dev.mojolingo.com<span class="pl-pds">"</span></span> <span class="pl-c"># Your XMPP JID for use with Rayo (swap 'freeswitch' for 'prism' as appropriate)</span>
+config.punchblock.password <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>1<span class="pl-pds">"</span></span> <span class="pl-c"># Your XMPP password</span></pre></div>
 
-<div class="highlight highlight-ruby"><pre><span class="c1">##</span>
-<span class="c1"># Use with Asterisk</span>
-<span class="c1">#</span>
-<span class="n">config</span><span class="o">.</span><span class="n">punchblock</span><span class="o">.</span><span class="n">platform</span> <span class="o">=</span> <span class="ss">:asterisk</span> <span class="c1"># Use Asterisk</span>
-<span class="n">config</span><span class="o">.</span><span class="n">punchblock</span><span class="o">.</span><span class="n">username</span> <span class="o">=</span> <span class="s2">"manager"</span> <span class="c1"># Your AMI username</span>
-<span class="n">config</span><span class="o">.</span><span class="n">punchblock</span><span class="o">.</span><span class="n">password</span> <span class="o">=</span> <span class="s2">"password"</span> <span class="c1"># Your AMI password</span>
-<span class="n">config</span><span class="o">.</span><span class="n">punchblock</span><span class="o">.</span><span class="n">host</span> <span class="o">=</span> <span class="s2">"asterisk.local-dev.mojolingo.com"</span> <span class="c1"># Your AMI host</span>
-</pre></div>
+<div class="highlight highlight-source-ruby"><pre><span class="pl-c">##</span>
+<span class="pl-c"># Use with Asterisk</span>
+<span class="pl-c">#</span>
+config.punchblock.platform <span class="pl-k">=</span> <span class="pl-c1">:asterisk</span> <span class="pl-c"># Use Asterisk</span>
+config.punchblock.username <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>manager<span class="pl-pds">"</span></span> <span class="pl-c"># Your AMI username</span>
+config.punchblock.password <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>password<span class="pl-pds">"</span></span> <span class="pl-c"># Your AMI password</span>
+config.punchblock.host <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>asterisk.local-dev.mojolingo.com<span class="pl-pds">"</span></span> <span class="pl-c"># Your AMI host</span></pre></div>
 
 <h3>
-<a name="test" class="anchor" href="#test"><span class="octicon octicon-link"></span></a>Test</h3>
+<a id="test" class="anchor" href="#test" aria-hidden="true"><span class="octicon octicon-link"></span></a>Test</h3>
 
 <p>Boot your Adhearsion app and call in. You can dial <code>usera@[asterisk/freeswitch/prism].local-dev.mojolingo.com</code>, or any number from a registered endpoint.</p>
 
 <h3>
-<a name="register-your-softphone-optional" class="anchor" href="#register-your-softphone-optional"><span class="octicon octicon-link"></span></a>Register your softphone (optional)</h3>
+<a id="register-your-softphone-optional" class="anchor" href="#register-your-softphone-optional" aria-hidden="true"><span class="octicon octicon-link"></span></a>Register your softphone (optional)</h3>
 
 <p>The Asterisk and FreeSWITCH VMs contain preconfigured "usera" and "userb" accounts for softphones. Use the following credentials to register:</p>
 
 <ul>
 <li>Username: usera@[asterisk/freeswitch].local-dev.mojolingo.com / Password: usera</li>
 <li>Username: userb@[asterisk/freeswitch].local-dev.mojolingo.com / Password: userb</li>
-</ul><h2>
-<a name="base-boxes" class="anchor" href="#base-boxes"><span class="octicon octicon-link"></span></a>Base Boxes</h2>
+</ul>
+
+<h2>
+<a id="base-boxes" class="anchor" href="#base-boxes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Base Boxes</h2>
 
 <p>This project includes base box templates for use on Mojo Lingo projects. These base boxes are published at <a href="http://ci.mojolingo.com/job/Telephony-Dev-Box-Base-Boxen">http://ci.mojolingo.com/job/Telephony-Dev-Box-Base-Boxen</a>, and include Chef 11. Ubuntu 12.04 and CentOS 6.4 boxes are available, both 64bit. The main difference between these and other publicly available base boxes is the visibility into their build mechanism and that they <em>never</em> change after they are published - new builds always have a new build number in their URL; this way you can be sure of base box stability.</p>
-        </section>
 
-        <footer>
-          Telephony Dev Box is maintained by <a href="https://github.com/mojolingo">mojolingo</a><br>
-          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
-        </footer>
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/adhearsion/Telephony-Dev-Box">Telephony Dev Box</a> is maintained by <a href="https://github.com/adhearsion">adhearsion</a>.</span>
 
-                  <script type="text/javascript">
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+            <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
           </script>
@@ -117,7 +109,5 @@ This project ships with configuration for each of the three supported telephony 
             } catch(err) {}
           </script>
 
-      </div>
-    </div>
   </body>
 </html>
