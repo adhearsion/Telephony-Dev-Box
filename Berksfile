@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 #^syntax detection
-source "http://api.berkshelf.com"
+source "https://api.berkshelf.com"
 
 # Misc
 cookbook 'mojolingo-misc', path: 'mojolingo-misc'
