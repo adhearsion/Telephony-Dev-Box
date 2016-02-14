@@ -82,7 +82,6 @@ Vagrant.configure("2") do |config|
 
     lumenvox.vm.box = 'chef/centos-6.6'
     lumenvox.vm.network :private_network, ip: ip
-    lumenvox.vm.network :public_network, ip: '192.168.2.2', bridge: 'br4: Ethernet Thunderbolt'
     lumenvox.vm.hostname = domain
 
     lumenvox.vm.provider :virtualbox do |vb|
