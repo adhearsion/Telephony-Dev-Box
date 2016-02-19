@@ -1,11 +1,15 @@
 name 'asterisk'
 description 'Installs Asterisk to run Adhearsion apps'
-run_list "recipe[asterisk]"
+run_list "recipe[asterisk]",
+  "recipe[unimrcp]",
+  "recipe[mojolingo-misc::mrcp_server_config]",
+  "recipe[asterisk::unimrcp]"
 
 override_attributes asterisk: {
   source: {
-    version: '13.6.0',
-    checksum: '8a01b53c946d092ac561c11b404f68cd328306d0e3b434a7485a11d4b175005a',
+    #version: '13.6.0',
+    version: '11.21.2',
+    checksum: '9f4408ecda81efccbc0ce6728a7c53fa1528c527ea65d81a165e830c9f91bcac',
   },
   sip: {
     context: 'adhearsion'
@@ -27,6 +31,6 @@ override_attributes asterisk: {
   }
 },
 unimrcp: {
-  install_flite: true,
+  install_flite: false,
   install_pocketsphinx: true
 }

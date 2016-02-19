@@ -7,8 +7,8 @@ cookbook 'mojolingo-misc', path: 'mojolingo-misc'
 cookbook 'apt'
 
 # Asterisk
-cookbook 'asterisk', '~> 1.1.1'
-cookbook 'unimrcp'
+cookbook 'asterisk', github: 'benlangfeld/asterisk-cookbook', branch: 'develop'
+cookbook 'unimrcp', github: 'benlangfeld/unimrcp-cookbook', branch: 'develop'
 
 # FreeSWITCH
 cookbook 'freeswitch', '~> 1.0.0'

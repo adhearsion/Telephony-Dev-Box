@@ -1,7 +1,7 @@
 Vagrant.configure("2") do |config|
   config.vm.box = 'bento/ubuntu-14.04'
   config.berkshelf.enabled = true
-  config.omnibus.chef_version = :latest
+  config.omnibus.chef_version = "11.4.0"
 
   config.vm.define :adhearsion do |adhearsion|
     adhearsion.vm.network :private_network, ip: "10.203.175.10"
