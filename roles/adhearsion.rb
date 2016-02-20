@@ -6,3 +6,7 @@ run_list "recipe[apt]",
 override_attributes 'rbenv' => {
   'group_users' => ['vagrant']
 }
+
+override_attributes 'java' => {
+  'jdk_version' => "7"
+}

@@ -6,7 +6,7 @@ package 'libpcre3'
 package 'libpcre3-dev'
 package 'default-jre-headless'
 
-%w{2.0.0-p353 jruby-1.7.9}.each do |ruby|
+%w{2.2.3 jruby-9.0.5.0}.each do |ruby|
   rbenv_ruby ruby
 
   rbenv_gem 'bundler' do
