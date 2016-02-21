@@ -80,7 +80,7 @@ Vagrant.configure("2") do |config|
     domain = "lumenvox.local-dev.mojolingo.com"
     ip     = "10.203.175.14"
 
-    lumenvox.vm.box = 'chef/centos-6.6'
+    lumenvox.vm.box = 'bento/centos-6.7'
     lumenvox.vm.network :private_network, ip: ip
     lumenvox.vm.hostname = domain
 
